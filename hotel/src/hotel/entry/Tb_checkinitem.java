@@ -4,8 +4,8 @@ public class Tb_checkinitem{
 private int CIMID;//入住登记信息编号
 private int CHECHINORDER_CIOID;//所属登记订单编号
 private int ROOM_RMID;//入住房间编号
-private double CIMPRCTPRICE;//实际价格
-private double CIMDISCOUNT;//实际折扣
+private double CIMPRCTPRICE;//每天实际价格
+private double CIMDISCOUNT;//每天实际折扣
 private String CIMINDATETIME;//入住时间
 private String CIMOUTDATETIME;//离开时间
 private int CIMSTATE;//登记状态	 0在住，1预定，2退房

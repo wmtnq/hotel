@@ -9,7 +9,8 @@ private double CIMDISCOUNT;//每天实际折扣
 private String CIMINDATETIME;//入住时间
 private String CIMOUTDATETIME;//离开时间
 private int CIMSTATE;//登记状态	 0在住，1预定，2退房
-
+private Tb_checkinorder tb_checkinorder;//入住登记订单表
+private Tb_balancement tb_balancement;//结账信息表
 public int getCIMID(){
 	return CIMID;
 }

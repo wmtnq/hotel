@@ -1,8 +1,13 @@
 package hotel.entry;
 
+/**
+ * 
+ * @author dadawang 结账信息表
+ */
 public class Tb_balancement {
 	private int BMID;// 结账信息编号
 	private int BMCHECKINORDERID;// 入住登记订单编号
+	private int BMROOM_RMID;// 客房编号
 	private int BMGUESTID;// 客人编号
 	private int BMTYPE;// 结账类型
 	private double BMTOTALRATE;// 应收金额

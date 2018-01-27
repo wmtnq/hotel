@@ -1,8 +1,12 @@
 package hotel.entry;
-
+/**
+ * 
+ * @author dadawang
+ *客人类型表
+ */
 public class Tb_putype{
-private int GTID;//客人类别编号
-private String GTTYPENAME;//客人类别名
+private int GTID;//客人类型编号
+private String GTTYPENAME;//客人类型名
 
 public int getGTID(){
 	return GTID;

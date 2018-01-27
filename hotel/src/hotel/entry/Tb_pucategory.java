@@ -1,5 +1,9 @@
 package hotel.entry;
 
+/**
+ * 
+ * @author dadawang 客人类别表
+ */
 public class Tb_pucategory {
 	private int CIOID;// 客人类别编号
 	private String CIOPAYMENTMODELNAME;// 客人类别名

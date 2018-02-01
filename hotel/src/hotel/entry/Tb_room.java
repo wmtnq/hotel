@@ -5,95 +5,95 @@ package hotel.entry;
  * @author dadawang 客房信息表
  */
 public class Tb_room {
-	private int RMID;// 客房编号
-	private String RMAREA;// 所属区域
-	private String RMFLOOR;// 所属楼层
-	private double RMPRCTPRICE;// 实际价格
-	private String RMTELPHONE;// 分机电话
-	private int RMSTATE;// 客房状态 0非空闲，1空闲
-	private int RMAVAILABLE;// 是否可用 0不可用，1可用
-	private String RMCATALOG;// 房间类型
-	private String RMPICTURE;// 房间图片
-	private double RMPRCTDISCOUNT;// 实际折扣
+	private int rm_id;// 客房编号
+	private String rm_area;// 所属区域
+	private String rm_floor;// 所属楼层
+	private double rm_prctPrice;// 实际价格
+	private String rm_telphone;// 分机电话
+	private int rm_state;// 客房状态 0非空闲，1空闲
+	private int rm_available;// 是否可用 0不可用，1可用
+	private String rm_picture;// 房间图片
+	private double rm_prctdiscount;// 实际折扣
+	private Tb_roomcatalog tb_roomcatalog;// 房间类型
 
-	public int getRMID() {
-		return RMID;
+	public int getRm_id() {
+		return rm_id;
 	}
 
-	public void setRMID(int RMID) {
-		this.RMID = RMID;
+	public void setRm_id(int rm_id) {
+		this.rm_id = rm_id;
 	}
 
-	public String getRMAREA() {
-		return RMAREA;
+	public String getRm_area() {
+		return rm_area;
 	}
 
-	public void setRMAREA(String RMAREA) {
-		this.RMAREA = RMAREA;
+	public void setRm_area(String rm_area) {
+		this.rm_area = rm_area;
 	}
 
-	public String getRMFLOOR() {
-		return RMFLOOR;
+	public String getRm_floor() {
+		return rm_floor;
 	}
 
-	public void setRMFLOOR(String RMFLOOR) {
-		this.RMFLOOR = RMFLOOR;
+	public void setRm_floor(String rm_floor) {
+		this.rm_floor = rm_floor;
 	}
 
-	public double getRMPRCTPRICE() {
-		return RMPRCTPRICE;
+	public double getRm_prctPrice() {
+		return rm_prctPrice;
 	}
 
-	public void setRMPRCTPRICE(double RMPRCTPRICE) {
-		this.RMPRCTPRICE = RMPRCTPRICE;
+	public void setRm_prctPrice(double rm_prctPrice) {
+		this.rm_prctPrice = rm_prctPrice;
 	}
 
-	public String getRMTELPHONE() {
-		return RMTELPHONE;
+	public String getRm_telphone() {
+		return rm_telphone;
 	}
 
-	public void setRMTELPHONE(String RMTELPHONE) {
-		this.RMTELPHONE = RMTELPHONE;
+	public void setRm_telphone(String rm_telphone) {
+		this.rm_telphone = rm_telphone;
 	}
 
-	public int getRMSTATE() {
-		return RMSTATE;
+	public int getRm_state() {
+		return rm_state;
 	}
 
-	public void setRMSTATE(int RMSTATE) {
-		this.RMSTATE = RMSTATE;
+	public void setRm_state(int rm_state) {
+		this.rm_state = rm_state;
 	}
 
-	public int getRMAVAILABLE() {
-		return RMAVAILABLE;
+	public int getRm_available() {
+		return rm_available;
 	}
 
-	public void setRMAVAILABLE(int RMAVAILABLE) {
-		this.RMAVAILABLE = RMAVAILABLE;
+	public void setRm_available(int rm_available) {
+		this.rm_available = rm_available;
 	}
 
-	public String getRMCATALOG() {
-		return RMCATALOG;
+	public String getRm_picture() {
+		return rm_picture;
 	}
 
-	public void setRMCATALOG(String RMCATALOG) {
-		this.RMCATALOG = RMCATALOG;
+	public void setRm_picture(String rm_picture) {
+		this.rm_picture = rm_picture;
 	}
 
-	public String getRMPICTURE() {
-		return RMPICTURE;
+	public double getRm_prctdiscount() {
+		return rm_prctdiscount;
 	}
 
-	public void setRMPICTURE(String RMPICTURE) {
-		this.RMPICTURE = RMPICTURE;
+	public void setRm_prctdiscount(double rm_prctdiscount) {
+		this.rm_prctdiscount = rm_prctdiscount;
 	}
 
-	public double getRMPRCTDISCOUNT() {
-		return RMPRCTDISCOUNT;
+	public Tb_roomcatalog getTb_roomcatalog() {
+		return tb_roomcatalog; 
 	}
 
-	public void setRMPRCTDISCOUNT(double RMPRCTDISCOUNT) {
-		this.RMPRCTDISCOUNT = RMPRCTDISCOUNT;
+	public void setTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		this.tb_roomcatalog = tb_roomcatalog;
 	}
 
 }

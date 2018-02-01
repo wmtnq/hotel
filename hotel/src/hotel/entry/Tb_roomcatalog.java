@@ -5,68 +5,54 @@ package hotel.entry;
  * @author dadawang 客房类型表
  */
 public class Tb_roomcatalog {
-	private int RCID;// 客房类型编号
-	private String RCNAME;// 客房类型名称
-	private int RCBEDNUMBER;// 床位数
-	private double RCPREPRICE;// 预定价格
-	private double RCPREDISCOUNT;// 预订折扣
-	private double RCHOURBASEPRICE;// 计时最低价
-	private double RCPERHOURPRICE;// 计时每小时价
-
-	public int getRCID() {
-		return RCID;
+	private int rc_id;// 客房类型编号
+	private String rc_name;// 客房类型名称
+	private int rc_bedNumber;// 床位数
+	private double rc_prePrice;// 预定价格
+	private double rc_prediscount;// 预订折扣
+	private double rc_hourbasePrice;// 计时最低价
+	private double rc_perhourPrice;// 计时每小时价
+	public int getRc_id() {
+		return rc_id;
 	}
-
-	public void setRCID(int RCID) {
-		this.RCID = RCID;
+	public void setRc_id(int rc_id) {
+		this.rc_id = rc_id;
 	}
-
-	public String getRCNAME() {
-		return RCNAME;
+	public String getRc_name() {
+		return rc_name;
 	}
-
-	public void setRCNAME(String RCNAME) {
-		this.RCNAME = RCNAME;
+	public void setRc_name(String rc_name) {
+		this.rc_name = rc_name;
 	}
-
-	public int getRCBEDNUMBER() {
-		return RCBEDNUMBER;
+	public int getRc_bedNumber() {
+		return rc_bedNumber;
 	}
-
-	public void setRCBEDNUMBER(int RCBEDNUMBER) {
-		this.RCBEDNUMBER = RCBEDNUMBER;
+	public void setRc_bedNumber(int rc_bedNumber) {
+		this.rc_bedNumber = rc_bedNumber;
 	}
-
-	public double getRCPREPRICE() {
-		return RCPREPRICE;
+	public double getRc_prePrice() {
+		return rc_prePrice;
 	}
-
-	public void setRCPREPRICE(double RCPREPRICE) {
-		this.RCPREPRICE = RCPREPRICE;
+	public void setRc_prePrice(double rc_prePrice) {
+		this.rc_prePrice = rc_prePrice;
 	}
-
-	public double getRCPREDISCOUNT() {
-		return RCPREDISCOUNT;
+	public double getRc_prediscount() {
+		return rc_prediscount;
 	}
-
-	public void setRCPREDISCOUNT(double RCPREDISCOUNT) {
-		this.RCPREDISCOUNT = RCPREDISCOUNT;
+	public void setRc_prediscount(double rc_prediscount) {
+		this.rc_prediscount = rc_prediscount;
 	}
-
-	public double getRCHOURBASEPRICE() {
-		return RCHOURBASEPRICE;
+	public double getRc_hourbasePrice() {
+		return rc_hourbasePrice;
 	}
-
-	public void setRCHOURBASEPRICE(double RCHOURBASEPRICE) {
-		this.RCHOURBASEPRICE = RCHOURBASEPRICE;
+	public void setRc_hourbasePrice(double rc_hourbasePrice) {
+		this.rc_hourbasePrice = rc_hourbasePrice;
 	}
-
-	public double getRCPERHOURPRICE() {
-		return RCPERHOURPRICE;
+	public double getRc_perhourPrice() {
+		return rc_perhourPrice;
 	}
-
-	public void setRCPERHOURPRICE(double RCPERHOURPRICE) {
-		this.RCPERHOURPRICE = RCPERHOURPRICE;
+	public void setRc_perhourPrice(double rc_perhourPrice) {
+		this.rc_perhourPrice = rc_perhourPrice;
 	}
 
 }

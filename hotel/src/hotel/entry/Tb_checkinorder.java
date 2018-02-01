@@ -5,203 +5,239 @@ package hotel.entry;
  * @author dadawang 入住订单表
  */
 public class Tb_checkinorder {
-	private int CIOID;// 入住登记订单编号
-	private String CIOGUESTNAME;// 客人名称
-	private int CIOMANNUMBER;// 人员数目
-	private int CIOGUESTCATALOG;// 客人类别
-	private int CIOGUESTTYPE;// 客人类型
-	private String CIOGROUPNAME;// 团队名称
-	private int CIOGUESTCARDCATALOG;// 客人证件类型
-	private String CIOGUESTCARDID;// 客人证件号码
-	private String CIOCAUSE;// 事由
-	private int CIOSTATE;// 登记状态 0在住，1预定，2退房
-	private String CIOINDATETIME;// 客人入住时间
-	private String CIOPREOUTDATETIME;// 预计离开时间
-	private String CIOPRCTOUTDATETIME;// 实际离开时间
-	private int CIOPAYMENTMODEL;// 支付类型
-	private int CIOPAIDMONEY;// 已付押金 0未付
-	private int CIOISESERVID;// 有无预定 0无预定，1预定
-	private String CIOOPERATOR;// 操作员
-	private int CIOGUESTGENDER;// 客人性别 0女，1男
-	private double CIOTOTALRATE;// 总费用
-	private double CIOCONSUMPTION;// 额外消费
-	private String CIOCONSUMPTIONDETAILS;// 额外消费详情
-	private String CIOORDERID;// 登记单号
+	private int cio_id;// 入住登记订单编号
+	private String cio_guestName;// 客户名称
+	private int CIOMANNUMBERcio_manNumber;// 人员数目
+	private int cio_guestCatalog;// 客户类别
+	private int cio_guestType;// 客户类型
+	private String cio_groupName;// 团队名称
+	private int cio_guestCardCatalog;// 客户证件类型
+	private String cio_guestCardId;// 客户证件号码
+	private String cio_cause;// 事由
+	private int cio_State;// 登记状态 0在住，1预定，2退房
+	private String cio_inDateTime;// 客户入住时间
+	private String cio_outDateTime;// 预计离开时间
+	private String cio_prctOutDateTime;// 实际离开时间
+	private int cio_paymentmodel;// 支付类型
+	private int cio_paidMoney;// 已付押金 0未付
+	private int cio_iseservid;// 有无预定 0无预定，1预定
+	private String cio_operator;// 操作员
+	private int cio_guestGender;// 客户性别 0女，1男
+	private double cio_totalRate;// 总费用
+	private double cio_consumption;// 额外消费
+	private String cio_consumptionDetails;// 额外消费详情
+	private String cio_orderid;// 登记单号
+	private Tb_guest tb_guest;// 客户实体
+	private Tb_pupaymenttype tb_pupaymenttype;// 支付类型
+	private Tb_checkinitem tb_checkinitem;// 入住登记表
+	private Tb_balancement tb_balancement;// 结账信息表
 
-	public int getCIOID() {
-		return CIOID;
+	public int getCio_id() {
+		return cio_id;
 	}
 
-	public void setCIOID(int CIOID) {
-		this.CIOID = CIOID;
+	public void setCio_id(int cio_id) {
+		this.cio_id = cio_id;
 	}
 
-	public String getCIOGUESTNAME() {
-		return CIOGUESTNAME;
+	public String getCio_guestName() {
+		return cio_guestName;
 	}
 
-	public void setCIOGUESTNAME(String CIOGUESTNAME) {
-		this.CIOGUESTNAME = CIOGUESTNAME;
+	public void setCio_guestName(String cio_guestName) {
+		this.cio_guestName = cio_guestName;
 	}
 
-	public int getCIOMANNUMBER() {
-		return CIOMANNUMBER;
+	public int getCIOMANNUMBERcio_manNumber() {
+		return CIOMANNUMBERcio_manNumber;
 	}
 
-	public void setCIOMANNUMBER(int CIOMANNUMBER) {
-		this.CIOMANNUMBER = CIOMANNUMBER;
+	public void setCIOMANNUMBERcio_manNumber(int cIOMANNUMBERcio_manNumber) {
+		CIOMANNUMBERcio_manNumber = cIOMANNUMBERcio_manNumber;
 	}
 
-	public int getCIOGUESTCATALOG() {
-		return CIOGUESTCATALOG;
+	public int getCio_guestCatalog() {
+		return cio_guestCatalog;
 	}
 
-	public void setCIOGUESTCATALOG(int CIOGUESTCATALOG) {
-		this.CIOGUESTCATALOG = CIOGUESTCATALOG;
+	public void setCio_guestCatalog(int cio_guestCatalog) {
+		this.cio_guestCatalog = cio_guestCatalog;
 	}
 
-	public int getCIOGUESTTYPE() {
-		return CIOGUESTTYPE;
+	public int getCio_guestType() {
+		return cio_guestType;
 	}
 
-	public void setCIOGUESTTYPE(int CIOGUESTTYPE) {
-		this.CIOGUESTTYPE = CIOGUESTTYPE;
+	public void setCio_guestType(int cio_guestType) {
+		this.cio_guestType = cio_guestType;
 	}
 
-	public String getCIOGROUPNAME() {
-		return CIOGROUPNAME;
+	public String getCio_groupName() {
+		return cio_groupName;
 	}
 
-	public void setCIOGROUPNAME(String CIOGROUPNAME) {
-		this.CIOGROUPNAME = CIOGROUPNAME;
+	public void setCio_groupName(String cio_groupName) {
+		this.cio_groupName = cio_groupName;
 	}
 
-	public int getCIOGUESTCARDCATALOG() {
-		return CIOGUESTCARDCATALOG;
+	public int getCio_guestCardCatalog() {
+		return cio_guestCardCatalog;
 	}
 
-	public void setCIOGUESTCARDCATALOG(int CIOGUESTCARDCATALOG) {
-		this.CIOGUESTCARDCATALOG = CIOGUESTCARDCATALOG;
+	public void setCio_guestCardCatalog(int cio_guestCardCatalog) {
+		this.cio_guestCardCatalog = cio_guestCardCatalog;
 	}
 
-	public String getCIOGUESTCARDID() {
-		return CIOGUESTCARDID;
+	public String getCio_guestCardId() {
+		return cio_guestCardId;
 	}
 
-	public void setCIOGUESTCARDID(String CIOGUESTCARDID) {
-		this.CIOGUESTCARDID = CIOGUESTCARDID;
+	public void setCio_guestCardId(String cio_guestCardId) {
+		this.cio_guestCardId = cio_guestCardId;
 	}
 
-	public String getCIOCAUSE() {
-		return CIOCAUSE;
+	public String getCio_cause() {
+		return cio_cause;
 	}
 
-	public void setCIOCAUSE(String CIOCAUSE) {
-		this.CIOCAUSE = CIOCAUSE;
+	public void setCio_cause(String cio_cause) {
+		this.cio_cause = cio_cause;
 	}
 
-	public int getCIOSTATE() {
-		return CIOSTATE;
+	public int getCio_State() {
+		return cio_State;
 	}
 
-	public void setCIOSTATE(int CIOSTATE) {
-		this.CIOSTATE = CIOSTATE;
+	public void setCio_State(int cio_State) {
+		this.cio_State = cio_State;
 	}
 
-	public String getCIOINDATETIME() {
-		return CIOINDATETIME;
+	public String getCio_inDateTime() {
+		return cio_inDateTime;
 	}
 
-	public void setCIOINDATETIME(String CIOINDATETIME) {
-		this.CIOINDATETIME = CIOINDATETIME;
+	public void setCio_inDateTime(String cio_inDateTime) {
+		this.cio_inDateTime = cio_inDateTime;
 	}
 
-	public String getCIOPREOUTDATETIME() {
-		return CIOPREOUTDATETIME;
+	public String getCio_outDateTime() {
+		return cio_outDateTime;
 	}
 
-	public void setCIOPREOUTDATETIME(String CIOPREOUTDATETIME) {
-		this.CIOPREOUTDATETIME = CIOPREOUTDATETIME;
+	public void setCio_outDateTime(String cio_outDateTime) {
+		this.cio_outDateTime = cio_outDateTime;
 	}
 
-	public String getCIOPRCTOUTDATETIME() {
-		return CIOPRCTOUTDATETIME;
+	public String getCio_prctOutDateTime() {
+		return cio_prctOutDateTime;
 	}
 
-	public void setCIOPRCTOUTDATETIME(String CIOPRCTOUTDATETIME) {
-		this.CIOPRCTOUTDATETIME = CIOPRCTOUTDATETIME;
+	public void setCio_prctOutDateTime(String cio_prctOutDateTime) {
+		this.cio_prctOutDateTime = cio_prctOutDateTime;
 	}
 
-	public int getCIOPAYMENTMODEL() {
-		return CIOPAYMENTMODEL;
+	public int getCio_paymentmodel() {
+		return cio_paymentmodel;
 	}
 
-	public void setCIOPAYMENTMODEL(int CIOPAYMENTMODEL) {
-		this.CIOPAYMENTMODEL = CIOPAYMENTMODEL;
+	public void setCio_paymentmodel(int cio_paymentmodel) {
+		this.cio_paymentmodel = cio_paymentmodel;
 	}
 
-	public int getCIOPAIDMONEY() {
-		return CIOPAIDMONEY;
+	public int getCio_paidMoney() {
+		return cio_paidMoney;
 	}
 
-	public void setCIOPAIDMONEY(int CIOPAIDMONEY) {
-		this.CIOPAIDMONEY = CIOPAIDMONEY;
+	public void setCio_paidMoney(int cio_paidMoney) {
+		this.cio_paidMoney = cio_paidMoney;
 	}
 
-	public int getCIOISESERVID() {
-		return CIOISESERVID;
+	public int getCio_iseservid() {
+		return cio_iseservid;
 	}
 
-	public void setCIOISESERVID(int CIOISESERVID) {
-		this.CIOISESERVID = CIOISESERVID;
+	public void setCio_iseservid(int cio_iseservid) {
+		this.cio_iseservid = cio_iseservid;
 	}
 
-	public String getCIOOPERATOR() {
-		return CIOOPERATOR;
+	public String getCio_operator() {
+		return cio_operator;
 	}
 
-	public void setCIOOPERATOR(String CIOOPERATOR) {
-		this.CIOOPERATOR = CIOOPERATOR;
+	public void setCio_operator(String cio_operator) {
+		this.cio_operator = cio_operator;
 	}
 
-	public int getCIOGUESTGENDER() {
-		return CIOGUESTGENDER;
+	public int getCio_guestGender() {
+		return cio_guestGender;
 	}
 
-	public void setCIOGUESTGENDER(int CIOGUESTGENDER) {
-		this.CIOGUESTGENDER = CIOGUESTGENDER;
+	public void setCio_guestGender(int cio_guestGender) {
+		this.cio_guestGender = cio_guestGender;
 	}
 
-	public double getCIOTOTALRATE() {
-		return CIOTOTALRATE;
+	public double getCio_totalRate() {
+		return cio_totalRate;
 	}
 
-	public void setCIOTOTALRATE(double CIOTOTALRATE) {
-		this.CIOTOTALRATE = CIOTOTALRATE;
+	public void setCio_totalRate(double cio_totalRate) {
+		this.cio_totalRate = cio_totalRate;
 	}
 
-	public double getCIOCONSUMPTION() {
-		return CIOCONSUMPTION;
+	public double getCio_consumption() {
+		return cio_consumption;
 	}
 
-	public void setCIOCONSUMPTION(double CIOCONSUMPTION) {
-		this.CIOCONSUMPTION = CIOCONSUMPTION;
+	public void setCio_consumption(double cio_consumption) {
+		this.cio_consumption = cio_consumption;
 	}
 
-	public String getCIOCONSUMPTIONDETAILS() {
-		return CIOCONSUMPTIONDETAILS;
+	public String getCio_consumptionDetails() {
+		return cio_consumptionDetails;
 	}
 
-	public void setCIOCONSUMPTIONDETAILS(String CIOCONSUMPTIONDETAILS) {
-		this.CIOCONSUMPTIONDETAILS = CIOCONSUMPTIONDETAILS;
+	public void setCio_consumptionDetails(String cio_consumptionDetails) {
+		this.cio_consumptionDetails = cio_consumptionDetails;
 	}
 
-	public String getCIOORDERID() {
-		return CIOORDERID;
+	public String getCio_orderid() {
+		return cio_orderid;
 	}
 
-	public void setCIOORDERID(String CIOORDERID) {
-		this.CIOORDERID = CIOORDERID;
+	public void setCio_orderid(String cio_orderid) {
+		this.cio_orderid = cio_orderid;
+	}
+
+	public Tb_guest getTb_guest() {
+		return tb_guest;
+	}
+
+	public void setTb_guest(Tb_guest tb_guest) {
+		this.tb_guest = tb_guest;
+	}
+
+	public Tb_pupaymenttype getTb_pupaymenttype() {
+		return tb_pupaymenttype;
+	}
+
+	public void setTb_pupaymenttype(Tb_pupaymenttype tb_pupaymenttype) {
+		this.tb_pupaymenttype = tb_pupaymenttype;
+	}
+
+	public Tb_checkinitem getTb_checkinitem() {
+		return tb_checkinitem;
+	}
+
+	public void setTb_checkinitem(Tb_checkinitem tb_checkinitem) {
+		this.tb_checkinitem = tb_checkinitem;
+	}
+
+	public Tb_balancement getTb_balancement() {
+		return tb_balancement;
+	}
+
+	public void setTb_balancement(Tb_balancement tb_balancement) {
+		this.tb_balancement = tb_balancement;
 	}
 
 }

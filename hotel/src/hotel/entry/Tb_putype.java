@@ -5,22 +5,19 @@ package hotel.entry;
  *客人类型表
  */
 public class Tb_putype{
-private int GTID;//客人类型编号
-private String GTTYPENAME;//客人类型名
-
-public int getGTID(){
-	return GTID;
+private int pt_id;//客人类型编号
+private String pt_typeName;//客人类型名
+public int getPt_id() {
+	return pt_id;
 }
-public void setGTID(int GTID){
-	this.GTID=GTID;
+public void setPt_id(int pt_id) {
+	this.pt_id = pt_id;
 }
-
-
-public String getGTTYPENAME(){
-	return GTTYPENAME;
+public String getPt_typeName() {
+	return pt_typeName;
 }
-public void setGTTYPENAME(String GTTYPENAME){
-	this.GTTYPENAME=GTTYPENAME;
+public void setPt_typeName(String pt_typeName) {
+	this.pt_typeName = pt_typeName;
 }
 
 }

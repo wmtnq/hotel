@@ -5,212 +5,181 @@ package hotel.entry;
  * @author dadawang 结账信息表
  */
 public class Tb_balancement {
-	private int BMID;// 结账信息编号
-	private int BMCHECKINORDERID;// 入住登记订单编号
-	private int BMROOM_RMID;// 客房编号
-	private int BMGUESTID;// 客人编号
-	private int BMTYPE;// 结账类型
-	private double BMTOTALRATE;// 应收金额
-	private double BMPAIDMONEY;// 已付押金 0未付
-	private double BMRECEIVMONEY;// 续收金额
-	private double BMREFUND;// 退款金额
-	private String BMREFUNDSTATE;// 退款状态
-	private String BMCARDNAME;// 持卡人姓名
-	private String BMCARDNUMBER;// 卡号
-	private String BMCARDID;// 持卡人身份证号
-	private String BMCARDPHONE; // 持卡人手机号
-	private String BMCREATETIME;// 创建时间
-	private String BMOPERATOR;// 操作员
-	private String BMPAYMENTMODEL;// 支付类型
-	private int BMRECEIPT;// 是否开票
-	private String BMCOMPANY;// 公司名称
-	private String BMPHONE;// 手机号
-	private String BMADDRESS;// 邮寄地址
-	private int BMRECEIPTSTATUS;// 开票状态
-	private String BMREMARK;// 结账说明
-
-	public int getBMID() {
-		return BMID;
+	private int bm_id;// 结账信息编号
+	private int bm_checkinorderId;// 入住登记订单编号
+	private int bm_roomId;// 客房编号
+	private int bm_guestId;// 客户编号
+	private int bm_paymentmodel;// 支付类型
+	private double bm_totalRate;// 应收金额
+	private double bm_paidMoney;// 已付押金 0未付
+	private double bm_receivMoney;// 续收金额
+	private double bm_refund;// 退款金额
+	private int bm_refundState;// 退款状态 0处理中 1已退款
+	private String bm_cardName;// 持卡人姓名
+	private String bm_cardNumber;// 卡号
+	private String bm_cardId;// 持卡人身份证号
+	private String bm_cardPhone; // 持卡人手机号
+	private String bm_createTime;// 创建时间
+	private String bm_operator;// 操作员
+	private int bm_receipt;// 是否开票 0否1是
+	private String bm_company;// 公司名称
+	private String bm_phone;// 收件人手机号
+	private String bm_address;// 邮寄地址
+	private int bm_receiptStatus;// 开票状态
+	private String bm_remark;// 结账说明
+	private Tb_room tb_room;//客房信息表
+	private Tb_guest tb_guest;//客户实体
+	private Tb_checkinitem tb_checkinitem;//登记入住信息表
+	public int getBm_id() {
+		return bm_id;
 	}
-
-	public void setBMID(int bMID) {
-		BMID = bMID;
+	public void setBm_id(int bm_id) {
+		this.bm_id = bm_id;
 	}
-
-	public int getBMCHECKINORDERID() {
-		return BMCHECKINORDERID;
+	public int getBm_checkinorderId() {
+		return bm_checkinorderId;
 	}
-
-	public void setBMCHECKINORDERID(int bMCHECKINORDERID) {
-		BMCHECKINORDERID = bMCHECKINORDERID;
+	public void setBm_checkinorderId(int bm_checkinorderId) {
+		this.bm_checkinorderId = bm_checkinorderId;
 	}
-
-	public int getBMROOM_RMID() {
-		return BMROOM_RMID;
+	public int getBm_roomId() {
+		return bm_roomId;
 	}
-
-	public void setBMROOM_RMID(int bMROOM_RMID) {
-		BMROOM_RMID = bMROOM_RMID;
+	public void setBm_roomId(int bm_roomId) {
+		this.bm_roomId = bm_roomId;
 	}
-
-	public int getBMGUESTID() {
-		return BMGUESTID;
+	public int getBm_guestId() {
+		return bm_guestId;
 	}
-
-	public void setBMGUESTID(int bMGUESTID) {
-		BMGUESTID = bMGUESTID;
+	public void setBm_guestId(int bm_guestId) {
+		this.bm_guestId = bm_guestId;
 	}
-
-	public int getBMTYPE() {
-		return BMTYPE;
+	public int getBm_paymentmodel() {
+		return bm_paymentmodel;
 	}
-
-	public void setBMTYPE(int bMTYPE) {
-		BMTYPE = bMTYPE;
+	public void setBm_paymentmodel(int bm_paymentmodel) {
+		this.bm_paymentmodel = bm_paymentmodel;
 	}
-
-	public double getBMTOTALRATE() {
-		return BMTOTALRATE;
+	public double getBm_totalRate() {
+		return bm_totalRate;
 	}
-
-	public void setBMTOTALRATE(double bMTOTALRATE) {
-		BMTOTALRATE = bMTOTALRATE;
+	public void setBm_totalRate(double bm_totalRate) {
+		this.bm_totalRate = bm_totalRate;
 	}
-
-	public double getBMPAIDMONEY() {
-		return BMPAIDMONEY;
+	public double getBm_paidMoney() {
+		return bm_paidMoney;
 	}
-
-	public void setBMPAIDMONEY(double bMPAIDMONEY) {
-		BMPAIDMONEY = bMPAIDMONEY;
+	public void setBm_paidMoney(double bm_paidMoney) {
+		this.bm_paidMoney = bm_paidMoney;
 	}
-
-	public double getBMRECEIVMONEY() {
-		return BMRECEIVMONEY;
+	public double getBm_receivMoney() {
+		return bm_receivMoney;
 	}
-
-	public void setBMRECEIVMONEY(double bMRECEIVMONEY) {
-		BMRECEIVMONEY = bMRECEIVMONEY;
+	public void setBm_receivMoney(double bm_receivMoney) {
+		this.bm_receivMoney = bm_receivMoney;
 	}
-
-	public double getBMREFUND() {
-		return BMREFUND;
+	public double getBm_refund() {
+		return bm_refund;
 	}
-
-	public void setBMREFUND(double bMREFUND) {
-		BMREFUND = bMREFUND;
+	public void setBm_refund(double bm_refund) {
+		this.bm_refund = bm_refund;
 	}
-
-	public String getBMREFUNDSTATE() {
-		return BMREFUNDSTATE;
+	public int getBm_refundState() {
+		return bm_refundState;
 	}
-
-	public void setBMREFUNDSTATE(String bMREFUNDSTATE) {
-		BMREFUNDSTATE = bMREFUNDSTATE;
+	public void setBm_refundState(int bm_refundState) {
+		this.bm_refundState = bm_refundState;
 	}
-
-	public String getBMCARDNAME() {
-		return BMCARDNAME;
+	public String getBm_cardName() {
+		return bm_cardName;
 	}
-
-	public void setBMCARDNAME(String bMCARDNAME) {
-		BMCARDNAME = bMCARDNAME;
+	public void setBm_cardName(String bm_cardName) {
+		this.bm_cardName = bm_cardName;
 	}
-
-	public String getBMCARDNUMBER() {
-		return BMCARDNUMBER;
+	public String getBm_cardNumber() {
+		return bm_cardNumber;
 	}
-
-	public void setBMCARDNUMBER(String bMCARDNUMBER) {
-		BMCARDNUMBER = bMCARDNUMBER;
+	public void setBm_cardNumber(String bm_cardNumber) {
+		this.bm_cardNumber = bm_cardNumber;
 	}
-
-	public String getBMCARDID() {
-		return BMCARDID;
+	public String getBm_cardId() {
+		return bm_cardId;
 	}
-
-	public void setBMCARDID(String bMCARDID) {
-		BMCARDID = bMCARDID;
+	public void setBm_cardId(String bm_cardId) {
+		this.bm_cardId = bm_cardId;
 	}
-
-	public String getBMCARDPHONE() {
-		return BMCARDPHONE;
+	public String getBm_cardPhone() {
+		return bm_cardPhone;
 	}
-
-	public void setBMCARDPHONE(String bMCARDPHONE) {
-		BMCARDPHONE = bMCARDPHONE;
+	public void setBm_cardPhone(String bm_cardPhone) {
+		this.bm_cardPhone = bm_cardPhone;
 	}
-
-	public String getBMCREATETIME() {
-		return BMCREATETIME;
+	public String getBm_createTime() {
+		return bm_createTime;
 	}
-
-	public void setBMCREATETIME(String bMCREATETIME) {
-		BMCREATETIME = bMCREATETIME;
+	public void setBm_createTime(String bm_createTime) {
+		this.bm_createTime = bm_createTime;
 	}
-
-	public String getBMOPERATOR() {
-		return BMOPERATOR;
+	public String getBm_operator() {
+		return bm_operator;
 	}
-
-	public void setBMOPERATOR(String bMOPERATOR) {
-		BMOPERATOR = bMOPERATOR;
+	public void setBm_operator(String bm_operator) {
+		this.bm_operator = bm_operator;
 	}
-
-	public String getBMPAYMENTMODEL() {
-		return BMPAYMENTMODEL;
+	public int getBm_receipt() {
+		return bm_receipt;
 	}
-
-	public void setBMPAYMENTMODEL(String bMPAYMENTMODEL) {
-		BMPAYMENTMODEL = bMPAYMENTMODEL;
+	public void setBm_receipt(int bm_receipt) {
+		this.bm_receipt = bm_receipt;
 	}
-
-	public int getBMRECEIPT() {
-		return BMRECEIPT;
+	public String getBm_company() {
+		return bm_company;
 	}
-
-	public void setBMRECEIPT(int bMRECEIPT) {
-		BMRECEIPT = bMRECEIPT;
+	public void setBm_company(String bm_company) {
+		this.bm_company = bm_company;
 	}
-
-	public String getBMCOMPANY() {
-		return BMCOMPANY;
+	public String getBm_phone() {
+		return bm_phone;
 	}
-
-	public void setBMCOMPANY(String bMCOMPANY) {
-		BMCOMPANY = bMCOMPANY;
+	public void setBm_phone(String bm_phone) {
+		this.bm_phone = bm_phone;
 	}
-
-	public String getBMPHONE() {
-		return BMPHONE;
+	public String getBm_address() {
+		return bm_address;
 	}
-
-	public void setBMPHONE(String bMPHONE) {
-		BMPHONE = bMPHONE;
+	public void setBm_address(String bm_address) {
+		this.bm_address = bm_address;
 	}
-
-	public String getBMADDRESS() {
-		return BMADDRESS;
+	public int getBm_receiptStatus() {
+		return bm_receiptStatus;
 	}
-
-	public void setBMADDRESS(String bMADDRESS) {
-		BMADDRESS = bMADDRESS;
+	public void setBm_receiptStatus(int bm_receiptStatus) {
+		this.bm_receiptStatus = bm_receiptStatus;
 	}
-
-	public int getBMRECEIPTSTATUS() {
-		return BMRECEIPTSTATUS;
+	public String getBm_remark() {
+		return bm_remark;
 	}
-
-	public void setBMRECEIPTSTATUS(int bMRECEIPTSTATUS) {
-		BMRECEIPTSTATUS = bMRECEIPTSTATUS;
+	public void setBm_remark(String bm_remark) {
+		this.bm_remark = bm_remark;
 	}
-
-	public String getBMREMARK() {
-		return BMREMARK;
+	public Tb_room getTb_room() {
+		return tb_room;
 	}
-
-	public void setBMREMARK(String bMREMARK) {
-		BMREMARK = bMREMARK;
+	public void setTb_room(Tb_room tb_room) {
+		this.tb_room = tb_room;
 	}
+	public Tb_guest getTb_guest() {
+		return tb_guest;
+	}
+	public void setTb_guest(Tb_guest tb_guest) {
+		this.tb_guest = tb_guest;
+	}
+	public Tb_checkinitem getTb_checkinitem() {
+		return tb_checkinitem;
+	}
+	public void setTb_checkinitem(Tb_checkinitem tb_checkinitem) {
+		this.tb_checkinitem = tb_checkinitem;
+	}
+	
 
 }

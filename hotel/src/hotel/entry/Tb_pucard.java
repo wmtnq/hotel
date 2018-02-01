@@ -5,23 +5,19 @@ package hotel.entry;
  * @author dadawang 证件类型表
  */
 public class Tb_pucard {
-	private int GTID;// 证件类型编号
-	private String GTCARDCATALOGNAME;// 证件名
-
-	public int getGTID() {
-		return GTID;
+	private int pc_id;// 证件类型编号
+	private String pc_cardCatalogName;// 证件名
+	public int getPc_id() {
+		return pc_id;
 	}
-
-	public void setGTID(int GTID) {
-		this.GTID = GTID;
+	public void setPc_id(int pc_id) {
+		this.pc_id = pc_id;
 	}
-
-	public String getGTCARDCATALOGNAME() {
-		return GTCARDCATALOGNAME;
+	public String getPc_cardCatalogName() {
+		return pc_cardCatalogName;
 	}
-
-	public void setGTCARDCATALOGNAME(String GTCARDCATALOGNAME) {
-		this.GTCARDCATALOGNAME = GTCARDCATALOGNAME;
+	public void setPc_cardCatalogName(String pc_cardCatalogName) {
+		this.pc_cardCatalogName = pc_cardCatalogName;
 	}
-
+	
 }

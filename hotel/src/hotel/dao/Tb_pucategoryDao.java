@@ -13,4 +13,5 @@ public interface Tb_pucategoryDao {
 	// 获取所有的客人类别
 	List<Tb_pucategory> getAllTb_pucategory();
 
+	
 }

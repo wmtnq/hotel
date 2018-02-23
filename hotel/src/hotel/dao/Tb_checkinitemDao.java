@@ -11,14 +11,14 @@ import hotel.entry.Tb_checkinitem;
  */
 public interface Tb_checkinitemDao {
 
-	// 查询所有入住登记信息表(Tb_checkinitem)和入住登记订单表(tb_checkinorder)和结账信息表(tb_balancement)
-	List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement();
+	// 查询所有入住登记信息表(Tb_checkinitem)
+	List<Tb_checkinitem> getAllTb_checkinitem();
 
 	// 查询所有入住登记信息表(Tb_checkinitem)和入住登记订单表(tb_checkinorder)和结账信息表(tb_balancement)筛选状态(CIMSTATE);
 	List<Tb_checkinitem> getStatusTb_checkinitemAndTb_checkinorderAndTb_balancement(int state);
 
 	// 模糊查询筛选订单、登记表、账单多表联查中匹配的条目并输出
-	List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement(String value);
+	List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement();
 
 	// 通过房间ID查询这个房间的订单信息
 	List<Tb_checkinitem> getByIdTb_checkinitemAndTb_checkinorderAndTb_balancement(int rmid);

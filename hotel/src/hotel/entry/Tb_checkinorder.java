@@ -6,8 +6,8 @@ package hotel.entry;
  */
 public class Tb_checkinorder {
 	private int cio_id;// 入住登记订单编号
-	private String cio_guestName;// 客户名称
-	private int CIOMANNUMBERcio_manNumber;// 人员数目
+	private int cio_guestID;// 客户名称
+	private int cio_manNumber;// 人员数目
 	private int cio_guestCatalog;// 客户类别
 	private int cio_guestType;// 客户类型
 	private String cio_groupName;// 团队名称
@@ -40,20 +40,20 @@ public class Tb_checkinorder {
 		this.cio_id = cio_id;
 	}
 
-	public String getCio_guestName() {
-		return cio_guestName;
+	public int getCio_guestID() {
+		return cio_guestID;
 	}
 
-	public void setCio_guestName(String cio_guestName) {
-		this.cio_guestName = cio_guestName;
+	public void setCio_guestID(int cio_guestID) {
+		this.cio_guestID = cio_guestID;
 	}
 
-	public int getCIOMANNUMBERcio_manNumber() {
-		return CIOMANNUMBERcio_manNumber;
+	public int getCio_manNumber() {
+		return cio_manNumber;
 	}
 
-	public void setCIOMANNUMBERcio_manNumber(int cIOMANNUMBERcio_manNumber) {
-		CIOMANNUMBERcio_manNumber = cIOMANNUMBERcio_manNumber;
+	public void setCio_manNumber(int cio_manNumber) {
+		this.cio_manNumber = cio_manNumber;
 	}
 
 	public int getCio_guestCatalog() {

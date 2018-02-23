@@ -1,35 +1,33 @@
 package hotel.dao.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import hotel.dao.BaseDao;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import hotel.dao.BaseDaoDBUtil;
 import hotel.dao.Tb_putypeDao;
 import hotel.entry.Tb_putype;
 
-public class Tb_putypeDaoImpl extends BaseDao implements Tb_putypeDao {
+/**
+ * 客户类型
+ * 
+ * @author dadawang
+ *
+ */
+public class Tb_putypeDaoImpl extends BaseDaoDBUtil<Tb_putype> implements Tb_putypeDao {
 
+	//获取全部客户类型
 	@Override
 	public List<Tb_putype> getAllTb_putype() {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM tb_putype";
-		ResultSet res = super.executeQuery(sql);
-		List<Tb_putype> list = new ArrayList<Tb_putype>();
-		try {
-			while(res.next()) {
-				Tb_putype tb_putype = new Tb_putype();
-				tb_putype.setGTID(res.getInt("GTID"));
-				tb_putype.setGTTYPENAME(res.getString("GTTYPENAME"));
-				list.add(tb_putype);
-					
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String prepardSql = "SELECT * FROM tb_putype";
+		List<Tb_putype> list= super.executeQuery(new BeanListHandler<Tb_putype>(Tb_putype.class), prepardSql);
+		
 		return list;
 	}
 
+	public static void main(String[] args) {
+		Tb_putypeDaoImpl tb = new Tb_putypeDaoImpl();
+		System.out.println(tb.getAllTb_putype().get(0).getPt_typeName());
+	}
 }

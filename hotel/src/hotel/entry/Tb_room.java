@@ -12,6 +12,7 @@ public class Tb_room {
 	private String rm_telphone;// 分机电话
 	private int rm_state;// 客房状态 0非空闲，1空闲
 	private int rm_available;// 是否可用 0不可用，1可用
+	private int rm_catalog;// 房间类型
 	private String rm_picture;// 房间图片
 	private double rm_prctdiscount;// 实际折扣
 	private Tb_roomcatalog tb_roomcatalog;// 房间类型
@@ -72,6 +73,14 @@ public class Tb_room {
 		this.rm_available = rm_available;
 	}
 
+	public int getRm_catalog() {
+		return rm_catalog;
+	}
+
+	public void setRm_catalog(int rm_catalog) {
+		this.rm_catalog = rm_catalog;
+	}
+
 	public String getRm_picture() {
 		return rm_picture;
 	}
@@ -89,7 +98,7 @@ public class Tb_room {
 	}
 
 	public Tb_roomcatalog getTb_roomcatalog() {
-		return tb_roomcatalog; 
+		return tb_roomcatalog;
 	}
 
 	public void setTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {

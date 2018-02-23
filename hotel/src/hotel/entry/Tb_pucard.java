@@ -19,5 +19,6 @@ public class Tb_pucard {
 	public void setPc_cardCatalogName(String pc_cardCatalogName) {
 		this.pc_cardCatalogName = pc_cardCatalogName;
 	}
+
 	
 }

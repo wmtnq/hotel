@@ -1,7 +1,10 @@
 package hotel.dao;
 
+import java.util.List;
+
 import hotel.entry.Tb_balancement;
 import hotel.entry.Tb_checkinitem;
+import hotel.entry.Tb_checkinorder;
 
 /**
  * 
@@ -14,6 +17,9 @@ public interface Tb_checkinorderDao {
 
 	//入住添加2：入住登记订单表
 	int addTb_checkinorder(Tb_checkinitem tb_checkinitem);
+	
+	//查询订单2：通过登记编号查询订单
+	Tb_checkinorder getTb_checkinorderRow(int orderId);
 
 	
 }

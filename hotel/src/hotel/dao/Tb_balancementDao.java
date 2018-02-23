@@ -19,4 +19,6 @@ public interface Tb_balancementDao {
 	// 获取结账中退款金额不为0的条目
 	List<Tb_balancement> getAllReceipt();
 
+	//查询3：根据订单编号查询账单
+	Tb_balancement getTb_balancementRow(int bm_checkinorderId);
 }

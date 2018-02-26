@@ -23,15 +23,17 @@ public class Tb_roomDaoImpl extends BaseDaoDBUtil<Tb_room> implements Tb_roomDao
 	//结账同时更新客房信息表(Tb_room)客房状态(RMSTATE)
 	@Override
 	public int updTb_room(Tb_balancement tb_balancement) {
-		// TODO Auto-generated method stub
-		return 0;
+		String prepardSql  = "UPDATE tb_room set rm_state=? where rm_id=?";
+		int count = super.executeUpdate(prepardSql,0, tb_balancement.getBm_roomId());
+		return count;
 	}
 
 	//入住更新1：客房信息表(tb_room)客房状态(RMSTATE)
 	@Override
 	public int updTb_room(Tb_checkinitem tb_checkinitem) {
-		// TODO Auto-generated method stub
-		return 0;
+		String prepardSql = "Update tb_romm set rm_state=? where rm_id=?";
+		int count = super.executeUpdate(prepardSql, tb_checkinitem.getCim_state(),tb_checkinitem.getCim_roomId());
+		return count;
 	}
 
 	//新增客房

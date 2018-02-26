@@ -23,9 +23,6 @@ public interface Tb_checkinitemService {
 	// 通过房间ID查询这个房间的订单信息
 	List<Tb_checkinitem> getByIdTb_checkinitemAndTb_checkinorderAndTb_balancement(int rmid);
 
-	// 获取不是空闲状态的房间
-	List<Tb_checkinitem> getNotidleTb_checkinitemAndTb_checkinorderAndTb_balancement(int state);
-
 	// 结账同时更新入住登记信息表(Tb_checkinitem)离开时间(CIMOUTDATETIME)、登记状态(CIMSTATE)
 	int updTb_checkinitem(Tb_balancement tb_balancement);
 

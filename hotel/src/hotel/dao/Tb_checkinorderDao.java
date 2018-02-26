@@ -1,6 +1,5 @@
 package hotel.dao;
 
-import java.util.List;
 
 import hotel.entry.Tb_balancement;
 import hotel.entry.Tb_checkinitem;
@@ -21,5 +20,8 @@ public interface Tb_checkinorderDao {
 	//查询订单2：通过登记编号查询订单
 	Tb_checkinorder getTb_checkinorderRow(int orderId);
 
+	//更新额外消费以及额外消费详情
+	int updTb_checkinorder(Tb_checkinorder tb_checkinorder);
+	
 	
 }

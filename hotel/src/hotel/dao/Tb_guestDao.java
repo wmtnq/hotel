@@ -17,4 +17,6 @@ public interface Tb_guestDao {
 	//入住添加3：添加客户信息
 	int addTb_guest(Tb_checkinitem tb_checkinitem);
 
+	//通过ID获取客户信息
+	Tb_guest getByIdTb_guest(int id);
 }

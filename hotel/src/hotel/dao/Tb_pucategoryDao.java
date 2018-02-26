@@ -10,8 +10,9 @@ import hotel.entry.Tb_pucategory;
  */
 public interface Tb_pucategoryDao {
 
-	// 获取所有的客人类别
+	// 获取所有的客户类别
 	List<Tb_pucategory> getAllTb_pucategory();
 
-	
+	//通过id获取客户类别
+	Tb_pucategory getByIdTb_pucategory(int pcg_cio);
 }

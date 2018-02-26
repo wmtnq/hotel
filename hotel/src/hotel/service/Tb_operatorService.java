@@ -26,6 +26,6 @@ public interface Tb_operatorService {
 	public int delTb_operator(String opusername);
 
 	//获取该用户的条目核对密码
-	Tb_operator getByNameTb_operator(String UserName);
+	Tb_operator getByNameTb_operator(String opusername);
 
 }

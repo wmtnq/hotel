@@ -23,13 +23,13 @@ public interface Tb_checkinitemDao {
 	// 通过房间ID查询这个房间的订单信息
 	List<Tb_checkinitem> getByIdTb_checkinitemAndTb_checkinorderAndTb_balancement(int rmid);
 
-	// 获取不是空闲状态的房间
-	List<Tb_checkinitem> getNotidleTb_checkinitemAndTb_checkinorderAndTb_balancement(int state);
-
 	// 结账同时更新入住登记信息表(Tb_checkinitem)离开时间(CIMOUTDATETIME)、登记状态(CIMSTATE)
 	int updTb_checkinitem(Tb_balancement tb_balancement);
 
 	//入住添加1：添加入住信息登记表
 	int addTb_checkinitem(Tb_checkinitem tb_checkinitem);
+	
+	// 入住添加2：更新登记表订单号
+	int updTb_checkinorder(int cio_id, int cim_id);
 
 }

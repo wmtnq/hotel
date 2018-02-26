@@ -14,11 +14,12 @@ import hotel.entry.Tb_balancement;
  */
 public class Tb_balancementDaoImpl extends BaseDaoDBUtil<Tb_balancement> implements Tb_balancementDao {
 
-	// 结账同时更新结账信息表(Tb_balancement)
+	// 结账同时添加结账信息表(Tb_balancement)
 	@Override
-	public int updTb_balancement(Tb_balancement tb_balancement) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int addTb_balancement(Tb_balancement tb_balancement) {
+		String prepardSql = "INSERT tb_balancement VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+		int id = (int) super.executeUpdata(prepardSql, tb_balancement.getBm_id(),tb_balancement.getBm_checkinorderId(),tb_balancement.getBm_roomId(),tb_balancement.getBm_guestId(),tb_balancement.getBm_paymentmodel(),tb_balancement.getBm_totalRate(),tb_balancement.getBm_paidMoney(),tb_balancement.getBm_receivMoney(),tb_balancement.getBm_refund(),tb_balancement.getBm_receiptStatus(),tb_balancement.getBm_cardName(),tb_balancement.getBm_cardNumber(),tb_balancement.getBm_cardId(),tb_balancement.getBm_cardPhone(),tb_balancement.getBm_createTime(),tb_balancement.getBm_operator(),tb_balancement.getBm_receipt(),tb_balancement.getBm_company(),tb_balancement.getBm_phone(),tb_balancement.getBm_address(),tb_balancement.getBm_receiptStatus(),tb_balancement.getBm_remark());
+		return id;
 	}
 
 	// 获取需要发票的订单
@@ -38,7 +39,6 @@ public class Tb_balancementDaoImpl extends BaseDaoDBUtil<Tb_balancement> impleme
 	//查询3：根据订单编号查询账单
 	@Override
 	public Tb_balancement getTb_balancementRow(int checkinorderId) {
-		// TODO Auto-generated method stub
 		String prepardSql = "SELECT * FROM tb_balancement where bm_checkinorderId = ? ";
 		return super.executeQuery(new BeanHandler<Tb_balancement>(Tb_balancement.class), prepardSql, checkinorderId);
 	}

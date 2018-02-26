@@ -6,7 +6,7 @@ package hotel.entry;
  */
 public class Tb_checkinorder {
 	private int cio_id;// 入住登记订单编号
-	private int cio_guestID;// 客户名称
+	private int cio_guestID;// 客户编号
 	private int cio_manNumber;// 人员数目
 	private int cio_guestCatalog;// 客户类别
 	private int cio_guestType;// 客户类型
@@ -26,11 +26,37 @@ public class Tb_checkinorder {
 	private double cio_totalRate;// 总费用
 	private double cio_consumption;// 额外消费
 	private String cio_consumptionDetails;// 额外消费详情
-	private String cio_orderid;// 登记单号
+	private int cio_orderid;// 登记单号
 	private Tb_guest tb_guest;// 客户实体
+	private Tb_pucard tb_pucard;//客户证件类型
 	private Tb_pupaymenttype tb_pupaymenttype;// 支付类型
 	private Tb_checkinitem tb_checkinitem;// 入住登记表
 	private Tb_balancement tb_balancement;// 结账信息表
+	private Tb_pucategory tb_pucategory;//客户类别
+	private Tb_putype tb_putype;//客户类型
+	public Tb_pucard getTb_pucard() {
+		return tb_pucard;
+	}
+
+	public void setTb_pucard(Tb_pucard tb_pucard) {
+		this.tb_pucard = tb_pucard;
+	}
+
+	public Tb_pucategory getTb_pucategory() {
+		return tb_pucategory;
+	}
+
+	public void setTb_pucategory(Tb_pucategory tb_pucategory) {
+		this.tb_pucategory = tb_pucategory;
+	}
+
+	public Tb_putype getTb_putype() {
+		return tb_putype;
+	}
+
+	public void setTb_putype(Tb_putype tb_putype) {
+		this.tb_putype = tb_putype;
+	}
 
 	public int getCio_id() {
 		return cio_id;
@@ -200,11 +226,11 @@ public class Tb_checkinorder {
 		this.cio_consumptionDetails = cio_consumptionDetails;
 	}
 
-	public String getCio_orderid() {
+	public int getCio_orderid() {
 		return cio_orderid;
 	}
 
-	public void setCio_orderid(String cio_orderid) {
+	public void setCio_orderid(int cio_orderid) {
 		this.cio_orderid = cio_orderid;
 	}
 

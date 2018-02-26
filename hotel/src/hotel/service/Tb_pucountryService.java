@@ -11,6 +11,6 @@ import hotel.entry.Tb_pucountry;
 public interface Tb_pucountryService {
 
 	// 获取所有国籍
-	List<Tb_pucountryService> getAllTb_pucountry();
+	List<Tb_pucountry> getAllTb_pucountry();
 
 }

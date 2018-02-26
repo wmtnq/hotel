@@ -10,8 +10,8 @@ import hotel.entry.Tb_balancement;
  */
 public interface Tb_balancementDao {
 
-	// 结账同时更新结账信息表(Tb_balancement)
-	int updTb_balancement(Tb_balancement tb_balancement);
+	// 结账同时添加结账信息表(Tb_balancement)
+	int addTb_balancement(Tb_balancement tb_balancement);
 
 	// 获取需要发票的订单
 	List<Tb_balancement> getAllReceipt(int state);

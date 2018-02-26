@@ -2,7 +2,9 @@ package hotel.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +44,43 @@ public class BaseDaoDBUtil<T> {
 			JdbcUtil.close(conn, ps);
 		}
 		return num;
+	}
+
+	/**
+	 * 更新同时返回最后一条ID值
+	 * 
+	 * @param prepardSql
+	 * @param objects
+	 * @return
+	 */
+	public Object executeUpdata(String prepardSql, Object... objects) {
+		Connection conn = JdbcUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Object retId = 0;
+		try {
+			ps = conn.prepareStatement(prepardSql, Statement.RETURN_GENERATED_KEYS);
+			for (int i = 0; i < objects.length; i++) {
+				ps.setObject(i + 1, objects[i]);
+			}
+			ps.executeUpdate();
+			rs = ps.getGeneratedKeys();
+			if (rs.last())
+				retId = rs.getObject(1);
+			else
+				try {
+					throw new Exception("insert or generate keys failed..");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, ps, rs);
+		}
+		return retId;
 	}
 
 	/**
@@ -90,6 +129,7 @@ public class BaseDaoDBUtil<T> {
 
 	/**
 	 * 查询返回单个数值
+	 * 
 	 * @param mapper
 	 * @param prepardSql
 	 * @param objects

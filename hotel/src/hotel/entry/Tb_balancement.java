@@ -1,5 +1,6 @@
 package hotel.entry;
 
+
 /**
  * 
  * @author dadawang 结账信息表

@@ -2,6 +2,7 @@ package hotel.dao.impl;
 
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import hotel.dao.BaseDaoDBUtil;
@@ -24,8 +25,13 @@ public class Tb_pucardDaoImpl extends BaseDaoDBUtil<Tb_pucard> implements Tb_puc
 		List<Tb_pucard> list = super.executeQuery(new BeanListHandler<Tb_pucard>(Tb_pucard.class), prepardSql);
 		return list;
 	}
-public static void main(String[] args) {
-	Tb_pucardDaoImpl tb = new Tb_pucardDaoImpl();
-	System.out.println(tb.getAllTb_pucard().get(1).getPc_cardCatalogName());
-}
+
+	// 通过id获取证件类型
+	@Override
+	public Tb_pucard getByIdTb_pucard(int pc_id) {
+		String prepardSql = "SELECT * FROM tb_pucard WHERE pc_id = ?";
+		Tb_pucard tb_pucard = super.executeQuery(new BeanHandler<Tb_pucard>(Tb_pucard.class), prepardSql, pc_id);
+		return tb_pucard;
+	}
+
 }

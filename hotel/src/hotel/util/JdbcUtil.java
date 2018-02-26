@@ -4,14 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class JdbcUtil {
 
 	private static ComboPooledDataSource dataSource = null;
-	private static ComboPooledDataSource dataSource1 = null;
 	private static Connection conn = null;
 	static {
 		dataSource = new ComboPooledDataSource("webApp");

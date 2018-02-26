@@ -1,10 +1,8 @@
 package hotel.dao.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import hotel.dao.BaseDaoDBUtil;
@@ -27,13 +25,21 @@ public class Tb_guestDaoImpl extends BaseDaoDBUtil<Tb_guest> implements Tb_guest
 	@Override
 	public int addTb_guest(Tb_checkinitem tb_checkinitem) {
 		// TODO Auto-generated method stub
-		String prepardSql = "";
-		super.executeUpdate(prepardSql);
-		return 0;
+		String prepardSql = "INSERT tb_guest VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		Tb_guest tb_guest = tb_checkinitem.getTb_checkinorder().getTb_guest();
+		int count = (int)super.executeUpdata(prepardSql,tb_guest.getGt_id(),tb_guest.getGt_name(),tb_guest.getGt_type(),tb_guest.getGt_pucategory(),tb_guest.getGt_cardcatalog(),tb_guest.getGt_cardId(),tb_guest.getGt_country(),tb_guest.getGt_address(),tb_guest.getGt_zip(),tb_guest.getGt_company(),tb_guest.getGt_telPhone(),tb_guest.getGt_mobile(),tb_guest.getGt_gender(),tb_guest.getGt_email(),tb_guest.getGt_createtime());
+		return count;
 	}
 
 	public static void main(String[] args) {
 		Tb_guestDaoImpl tb  =  new Tb_guestDaoImpl();
 		System.out.println(tb.getAllTb_guest().get(0).getGt_cardcatalog());
+	}
+
+	@Override
+	public Tb_guest getByIdTb_guest(int id) {
+		String prepardSql = "SELECT * FROM tb_guest";
+		Tb_guest tb_guest = super.executeQuery(new BeanHandler<Tb_guest>(Tb_guest.class), prepardSql);
+		return tb_guest;
 	}
 }

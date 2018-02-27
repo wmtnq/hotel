@@ -18,7 +18,7 @@ public interface Tb_checkinitemDao {
 	List<Tb_checkinitem> getStatusTb_checkinitemAndTb_checkinorderAndTb_balancement(int state);
 
 	// 模糊查询筛选订单、登记表、账单多表联查中匹配的条目并输出
-	List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement();
+	List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement(String value);
 
 	// 通过房间ID查询这个房间的订单信息
 	List<Tb_checkinitem> getByIdTb_checkinitemAndTb_checkinorderAndTb_balancement(int rmid);

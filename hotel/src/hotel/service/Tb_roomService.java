@@ -18,7 +18,16 @@ public interface Tb_roomService {
 	// 结账同时更新客房信息表(Tb_room)客房状态(RMSTATE)
 	int updTb_room(Tb_balancement tb_balancement);
 
-	//入住更新1：客房信息表(tb_room)客房状态(RMSTATE)
+	// 入住更新1：客房信息表(tb_room)客房状态(RMSTATE)
 	int updTb_room(Tb_checkinitem tb_checkinitem);
+
+	// 新增客房
+	int addTb_room(Tb_room tb_room);
+
+	// 修改2：更新客房信息
+	int updTb_room(Tb_room tb_room);
+
+	// 删除客房信息
+	int delTb_room(Tb_room tb_room);
 
 }

@@ -25,7 +25,4 @@ public interface Tb_operatorService {
 	// 删除操作员以用户名为条件
 	public int delTb_operator(String opusername);
 
-	//获取该用户的条目核对密码
-	Tb_operator getByNameTb_operator(String opusername);
-
 }

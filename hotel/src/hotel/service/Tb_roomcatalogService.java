@@ -23,6 +23,6 @@ public interface Tb_roomcatalogService {
 	int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
 
 	// 删除客房类型注：删除客房类型要先删除该类型的客房
-	int delTb_roomcatalog();
+	boolean delTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
 
 }

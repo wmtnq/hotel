@@ -43,15 +43,13 @@ public class Tb_balancementServiceImpl implements Tb_balancementService {
 	// 获取需要发票的订单
 	@Override
 	public List<Tb_balancement> getAllReceipt(int state) {
-		// TODO Auto-generated method stub
-		return null;
+		return tb_balancementDao.getAllReceipt(state);
 	}
 
 	// 获取结账中退款金额不为0的条目
 	@Override
 	public List<Tb_balancement> getAllReceipt() {
-		// TODO Auto-generated method stub
-		return null;
+		return tb_balancementDao.getAllReceipt();
 	}
 
 }

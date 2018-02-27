@@ -8,6 +8,7 @@ import hotel.dao.BaseDaoDBUtil;
 import hotel.dao.Tb_checkinitemDao;
 import hotel.entry.Tb_balancement;
 import hotel.entry.Tb_checkinitem;
+import hotel.util.PublicMethod;
 
 public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> implements Tb_checkinitemDao {
 
@@ -28,9 +29,12 @@ public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> impleme
 
 	// 模糊查询筛选订单、登记表、账单多表联查中匹配的条目并输出
 	@Override
-	public List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement(String value) {
+		String prepardSql = "SELECT * FROM tb_checkinitem join tb_checkinorder on tb_checkinitem.cim_id=tb_checkinorder.cio_orderid join tb_balancement on tb_balancement.bm_checkinorderId=tb_checkinitem.cim_id WHERE bm_cardId LIKE CONCAT(?,'%') OR cio_id LIKE CONCAT(?,'%') OR bm_id LIKE CONCAT(?,'%')";
+		List<Tb_checkinitem> list = super.executeQuery(new BeanListHandler<Tb_checkinitem>(Tb_checkinitem.class),
+				prepardSql, value, value, value);
+
+		return list;
 	}
 
 	// 通过房间ID查询这个房间的订单信息

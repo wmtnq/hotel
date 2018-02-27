@@ -27,6 +27,6 @@ public interface Tb_checkinitemService {
 	int updTb_checkinitem(Tb_balancement tb_balancement);
 
 	//入住添加1：添加入住信息登记表
-	int addTb_checkinitem(Tb_checkinitem tb_checkinitem);
+	boolean addTb_checkinitem(Tb_checkinitem tb_checkinitem);
 
 }

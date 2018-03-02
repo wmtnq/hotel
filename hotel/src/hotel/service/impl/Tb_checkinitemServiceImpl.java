@@ -111,8 +111,7 @@ public class Tb_checkinitemServiceImpl implements Tb_checkinitemService {
 
 	public static void main(String[] args) {
 		Tb_checkinitemServiceImpl tb = new Tb_checkinitemServiceImpl();
-		System.out.println(tb.getAllTb_checkinitemAndTb_checkinorderAndTb_balancement("410821").get(0)
-				.getTb_balancement().getBm_checkinorderId());
+		System.out.println(tb.getAllTb_checkinitemAndTb_checkinorderAndTb_balancement().get(0).getCim_outdateTime());
 	}
 
 }

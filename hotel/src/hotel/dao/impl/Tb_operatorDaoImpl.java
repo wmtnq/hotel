@@ -50,4 +50,12 @@ public class Tb_operatorDaoImpl extends  BaseDaoDBUtil<Tb_operator> implements T
 		return super.executeUpdate(prepardSql,opusername);
 	}
 
+	//验证登录
+	@Override
+	public Tb_operator getByNameByPass(String opusername, String pass) {
+		String prepardSql = "SELECT * FROM tb_operator WHERE op_userName=? and op_passWord = ?";
+		Tb_operator tb_operator = super.executeQuery(new BeanHandler<Tb_operator>(Tb_operator.class), prepardSql, opusername,pass);
+		return tb_operator;
+	}
+
 }

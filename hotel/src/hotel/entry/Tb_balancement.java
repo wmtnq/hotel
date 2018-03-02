@@ -26,11 +26,18 @@ public class Tb_balancement {
 	private String bm_company;// 公司名称
 	private String bm_phone;// 收件人手机号
 	private String bm_address;// 邮寄地址
-	private int bm_receiptStatus;// 开票状态
+	private int bm_receiptStatus;// 开票状态 0未开 1已开
 	private String bm_remark;// 结账说明
 	private Tb_room tb_room;//客房信息表
 	private Tb_guest tb_guest;//客户实体
 	private Tb_checkinitem tb_checkinitem;//登记入住信息表
+	private Tb_pupaymenttype tb_pupaymenttype;//支付类型
+	public Tb_pupaymenttype getTb_pupaymenttype() {
+		return tb_pupaymenttype;
+	}
+	public void setTb_pupaymenttype(Tb_pupaymenttype tb_pupaymenttype) {
+		this.tb_pupaymenttype = tb_pupaymenttype;
+	}
 	public int getBm_id() {
 		return bm_id;
 	}

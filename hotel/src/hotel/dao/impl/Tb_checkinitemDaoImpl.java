@@ -33,7 +33,6 @@ public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> impleme
 		String prepardSql = "SELECT * FROM tb_checkinitem join tb_checkinorder on tb_checkinitem.cim_id=tb_checkinorder.cio_orderid join tb_balancement on tb_balancement.bm_checkinorderId=tb_checkinitem.cim_id WHERE bm_cardId LIKE CONCAT(?,'%') OR cio_id LIKE CONCAT(?,'%') OR bm_id LIKE CONCAT(?,'%')";
 		List<Tb_checkinitem> list = super.executeQuery(new BeanListHandler<Tb_checkinitem>(Tb_checkinitem.class),
 				prepardSql, value, value, value);
-
 		return list;
 	}
 

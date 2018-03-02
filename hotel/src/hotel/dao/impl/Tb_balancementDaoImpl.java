@@ -32,16 +32,16 @@ public class Tb_balancementDaoImpl extends BaseDaoDBUtil<Tb_balancement> impleme
 
 	// 获取需要发票的订单
 	@Override
-	public List<Tb_balancement> getAllReceipt(int state) {
-		String prepardSql = "Select * from tb_balancement where state = 1";
+	public List<Tb_balancement> getAllReceipt() {
+		String prepardSql = "Select * from tb_balancement where bm_receipt = 1 and bm_receiptStatus = 0";
 		List<Tb_balancement> list = super.executeQuery(new BeanListHandler<Tb_balancement>(Tb_balancement.class),
-				prepardSql, state);
+				prepardSql);
 		return list;
 	}
 
 	// 获取结账中退款金额不为0的条目
 	@Override
-	public List<Tb_balancement> getAllReceipt() {
+	public List<Tb_balancement> getAllRefundState() {
 		String prepardSql = "Select * from tb_balancement where bm_refund !=0";
 		List<Tb_balancement> list = super.executeQuery(new BeanListHandler<Tb_balancement>(Tb_balancement.class),
 				prepardSql);
@@ -54,5 +54,4 @@ public class Tb_balancementDaoImpl extends BaseDaoDBUtil<Tb_balancement> impleme
 		String prepardSql = "SELECT * FROM tb_balancement where bm_checkinorderId = ? ";
 		return super.executeQuery(new BeanHandler<Tb_balancement>(Tb_balancement.class), prepardSql, checkinorderId);
 	}
-
 }

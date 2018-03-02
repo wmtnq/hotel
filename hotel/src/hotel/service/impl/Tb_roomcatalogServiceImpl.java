@@ -21,8 +21,8 @@ public class Tb_roomcatalogServiceImpl implements Tb_roomcatalogService {
 
 	// 新增客房类型(增)
 	@Override
-	public int addTb_roomcatalog() {
-		return tb_roomcatalogDao.addTb_roomcatalog(null);
+	public int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		return tb_roomcatalogDao.addTb_roomcatalog(tb_roomcatalog);
 	}
 
 	// 修改1：通过id获取该条客房的类型信息
@@ -33,8 +33,8 @@ public class Tb_roomcatalogServiceImpl implements Tb_roomcatalogService {
 
 	// 修改2：更新客房类型(更)
 	@Override
-	public int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
-		return tb_roomcatalogDao.addTb_roomcatalog(tb_roomcatalog);
+	public int updTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		return tb_roomcatalogDao.updTb_roomcatalog(tb_roomcatalog);
 	}
 
 	// 删除客房类型注：删除客房类型要先删除该类型的客房(删)

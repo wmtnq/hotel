@@ -17,7 +17,7 @@ public interface Tb_operatorService {
 	public int addTb_operator(Tb_operator tb_operator);
 
 	// 修改1：通过用户名获取获取该操作员信息
-	public Tb_operator getByIdTb_operator(String opusername);
+	public Tb_operator getByNameTb_operator(String opusername);
 
 	// 修改2：更新修改后的操作员信息
 	public int updTb_operator(Tb_operator tb_operator);
@@ -25,4 +25,6 @@ public interface Tb_operatorService {
 	// 删除操作员以用户名为条件
 	public int delTb_operator(String opusername);
 
+	// 验证登录
+	public Tb_operator getByNameByPass(String opusername, String pass);
 }

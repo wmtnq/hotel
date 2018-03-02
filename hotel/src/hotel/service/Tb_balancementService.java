@@ -14,9 +14,9 @@ public interface Tb_balancementService {
 	boolean updTb_balancement(Tb_balancement tb_balancement);
 
 	// 获取需要发票的订单
-	List<Tb_balancement> getAllReceipt(int state);
+	List<Tb_balancement> getAllReceipt();
 
 	// 获取结账中退款金额不为0的条目
-	List<Tb_balancement> getAllReceipt();
+	List<Tb_balancement> getAllRefundState();
 
 }

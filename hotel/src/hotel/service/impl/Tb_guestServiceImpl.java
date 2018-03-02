@@ -89,7 +89,6 @@ public class Tb_guestServiceImpl implements Tb_guestService {
 
 	public static void main(String[] args) {
 		Tb_guestServiceImpl tb = new Tb_guestServiceImpl();
-
 		System.out.println(tb.getAllTb_guest().get(0).getTb_pucategory().getPcg_categoryName());
 	}
 }

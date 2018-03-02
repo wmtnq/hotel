@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="UTF-8">
 <title>洲际酒店内部管理登录页面</title>
 
 <style type="text/css">
@@ -109,7 +109,7 @@ label {
 	display: block;
 }
 
-.text {
+input {
 	width: 220px;
 	height: 46px;
 	outline: none;
@@ -120,6 +120,20 @@ label {
 	border: none;
 	background: none;
 	line-height: 46px;
+}
+
+input.checkbox {
+	width: 300px;
+	height: 46px;
+	outline: none;
+	display: inline-block;
+	text-align: center;
+	font: 14px "microsoft yahei", Helvetica, Tahoma, Arial,
+		"Microsoft jhengHei";
+	border: none;
+	background: none;
+	line-height: 46px;
+	color: red;
 }
 /*///*/
 .mb2 {
@@ -261,35 +275,64 @@ label {
 
 	<div class="logo_box">
 		<h3>洲际酒店欢迎您</h3>
-		<form action="#" name="f" method="post">
-			<div class="input_outer">
-				<span class="u_user"></span> <input name="logname" class="text"
-					onfocus=" if(this.value=='输入ID或用户名登录') this.value=''"
-					onblur="if(this.value=='') this.value='输入ID或用户名登录'"
-					value="输入ID或用户名登录" style="color: #FFFFFF !important" type="text">
-			</div>
-			<div class="input_outer">
-				<span class="us_uer"></span> <label class="l-login login_password"
-					style="color: rgb(255, 255, 255); display: block;">输入密码</label> <input
-					name="logpass" class="text"
-					style="color: #FFFFFF !important; position: absolute; z-index: 100;"
-					onfocus="$('.login_password').hide()"
-					onblur="if(this.value=='') $('.login_password').show()" value=""
-					type="password">
-			</div>
-			<div class="mb2">
-				<a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a>
-			</div>
-			<!--<input name="savesid" value="0" id="check-box" class="checkbox" type="checkbox"><span>记住用户名</span>-->
-		</form>
-		<!--<a href="#" class="login-fgetpwd" style="color: #FFFFFF">忘记密码？</a>-->
-
-		<!--<div class="sas">
-				<a href="#">还没注册账号！</a>
-			</div>-->
+		<div class="input_outer">
+			<span class="u_user"></span> <input name="logname" class="name"
+				onfocus="this.value=''"
+				onblur="if(this.value=='') this.value='用户名不能为空!'" value="输入用户名登录"
+				style="color: #FFFFFF !important" type="name">
+		</div>
+		<div class="input_outer">
+			<span class="us_uer"></span> <label class="l-login login_password"
+				style="color: rgb(255, 255, 255); display: block;">输入密码</label> <input
+				name="logpass" class="pass"
+				style="color: #FFFFFF !important; position: absolute; z-index: 100;"
+				onblur="if(this.value=='') $('.login_password').show()" value=""
+				type="password">
+		</div>
+		<div class="mb2">
+			<a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a>
+		</div>
+		<input class="checkbox" type="text" value="">
 
 	</div>
 
 </body>
 
+<script type="text/javascript">
+	if("${log }"){
+		window.location = "admin/homepage.jsp";		
+	}
+	$(".pass").focus(function() {
+		$(this).val("");
+		$('.login_password').hide();
+	});
+	$(".mb2").click(function() {
+						$(".checkbox").val("");
+						var name = $(".name").val();
+						var pass = $(".pass").val();
+						if (name != "用户名不能为空!" && name != "输入用户名登录"&& name != "") {
+							if (pass != "") {
+								$.ajax({
+											"url" : "log.do?c=getByNameByPass",
+											"type" : "post",
+											"data" : {"name" : name,"pass" : pass},
+											"success" : function(res) {
+												if (res) {
+													window.location = "admin/homepage.jsp";
+												}else{
+													$(".checkbox").val("用户名或密码错误！");
+												}
+											}
+										});
+							} else {
+								$(".checkbox").val("密码不能为空！");
+							}
+						} else {
+							$(".checkbox").val("用户名不能为空！");
+						}
+
+					});
+</script>
+
 </html>
+

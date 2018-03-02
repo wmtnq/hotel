@@ -13,7 +13,8 @@ public interface Tb_checkinitemDao {
 
 	// 查询所有入住登记信息表(Tb_checkinitem)
 	List<Tb_checkinitem> getAllTb_checkinitem();
-
+	
+	
 	// 查询所有入住登记信息表(Tb_checkinitem)和入住登记订单表(tb_checkinorder)和结账信息表(tb_balancement)筛选状态(CIMSTATE);
 	List<Tb_checkinitem> getStatusTb_checkinitemAndTb_checkinorderAndTb_balancement(int state);
 

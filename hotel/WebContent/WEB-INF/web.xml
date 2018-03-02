@@ -1,12 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>hotel</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>hotel</display-name>
+
+	<!--客房信息 -->
+	<servlet>
+		<servlet-name>Tb_roomServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_roomServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_roomServlet</servlet-name>
+		<url-pattern>/admin/tb_room.do</url-pattern>
+	</servlet-mapping>
+
+	<!--客房类型 -->
+	<servlet>
+		<servlet-name>Tb_roomcatalogServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_roomcatalogServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_roomcatalogServlet</servlet-name>
+		<url-pattern>/admin/tb_roomcatalog.do</url-pattern>
+	</servlet-mapping>
+
+
+	<!--账单信息 -->
+	<servlet>
+		<servlet-name>Tb_balancementServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_balancementServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_balancementServlet</servlet-name>
+		<url-pattern>/admin/tb_balancement.do</url-pattern>
+	</servlet-mapping>
+
+
+	<!--登记表信息 -->
+	<servlet>
+		<servlet-name>Tb_checkinitemServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_checkinitemServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_checkinitemServlet</servlet-name>
+		<url-pattern>/admin/tb_checkinitem.do</url-pattern>
+	</servlet-mapping>
+
+
+	<!--客户实体信息 -->
+	<servlet>
+		<servlet-name>Tb_guestSertvlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_guestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_guestSertvlet</servlet-name>
+		<url-pattern>/admin/tb_guest.do</url-pattern>
+	</servlet-mapping>
+
+	<!--操作员信息 -->
+	<servlet>
+		<servlet-name>Tb_operatorServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_operatorServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_operatorServlet</servlet-name>
+		<url-pattern>/admin/tb_operator.do</url-pattern>
+	</servlet-mapping>
+	
+	<!--登录 -->
+	<servlet>
+		<servlet-name>LogServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.LogServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogServlet</servlet-name>
+		<url-pattern>/home/log.do</url-pattern>
+	</servlet-mapping>
+	
+	 <!-- 过滤是否登录 -->
+	<filter>
+		<filter-name>LogFiter</filter-name>
+		<filter-class>hotel.filter.LogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFiter</filter-name>
+		<url-pattern>/home/admin/*</url-pattern>
+	</filter-mapping>
+	
+	
+		<!-- 过滤字符集 -->
+	<filter>
+		<filter-name>ChaFiter</filter-name>
+		<filter-class>hotel.filter.ChaFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ChaFiter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

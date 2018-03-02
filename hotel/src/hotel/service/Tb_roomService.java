@@ -23,6 +23,9 @@ public interface Tb_roomService {
 
 	// 新增客房
 	int addTb_room(Tb_room tb_room);
+	
+	// 修改1：通过id获取客房信息
+	Tb_room getByIdTb_room(int rm_id);
 
 	// 修改2：更新客房信息
 	int updTb_room(Tb_room tb_room);

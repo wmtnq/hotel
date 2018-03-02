@@ -24,7 +24,7 @@ public class Tb_operatorServiceImpl implements Tb_operatorService {
 	}
 
 	// 修改1：通过用户名获取获取该操作员信息
-	public Tb_operator getByIdTb_operator(String opusername) {
+	public Tb_operator getByNameTb_operator(String opusername) {
 		return tb_operatorDao.getByNameTb_operator(opusername);
 	}
 
@@ -38,6 +38,13 @@ public class Tb_operatorServiceImpl implements Tb_operatorService {
 	@Override
 	public int delTb_operator(String opusername) {
 		return tb_operatorDao.delTb_operator(opusername);
+	}
+
+	// 验证登录
+	@Override
+	public Tb_operator getByNameByPass(String opusername, String pass) {
+		Tb_operator tb_operator = tb_operatorDao.getByNameByPass(opusername, pass);
+		return tb_operator;
 	}
 
 }

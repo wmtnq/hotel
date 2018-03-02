@@ -10,7 +10,7 @@ public class Tb_room {
 	private String rm_floor;// 所属楼层
 	private double rm_prctPrice;// 实际价格
 	private String rm_telphone;// 分机电话
-	private int rm_state;// 客房状态 0非空闲，1空闲
+	private int rm_state;// 客房状态 0未入住  1已预订 2已入住 3维修中
 	private int rm_available;// 是否可用 0不可用，1可用
 	private int rm_catalog;// 房间类型
 	private String rm_picture;// 房间图片

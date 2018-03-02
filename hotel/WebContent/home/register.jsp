@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>洲际酒店内部管理登录页面</title>
+<title>征启后台管理</title>
 
 <style type="text/css">
 * {
@@ -274,7 +274,7 @@ input.checkbox {
 	<script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 
 	<div class="logo_box">
-		<h3>洲际酒店欢迎您</h3>
+		<h3>征启后台管理</h3>
 		<div class="input_outer">
 			<span class="u_user"></span> <input name="logname" class="name"
 				onfocus="this.value=''"

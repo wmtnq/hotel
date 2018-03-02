@@ -279,7 +279,7 @@ input.checkbox {
 			<span class="u_user"></span> <input name="logname" class="name"
 				onfocus="this.value=''"
 				onblur="if(this.value=='') this.value='用户名不能为空!'" value="输入用户名登录"
-				style="color: #FFFFFF !important" type="name">
+				style="color: #FFFFFF !important" type="text">
 		</div>
 		<div class="input_outer">
 			<span class="us_uer"></span> <label class="l-login login_password"

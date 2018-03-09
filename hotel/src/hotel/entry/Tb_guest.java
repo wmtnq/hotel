@@ -15,8 +15,8 @@ public class Tb_guest {
 	private String gt_address;// 地址
 	private String gt_zip;// 邮编
 	private String gt_company;// 公司(工作单位)
-	private String gt_telPhone;// 固定电话
-	private String gt_mobile;// 手机号码
+	private String gt_telPhone;// 手机号码
+	private String gt_mobile;// 固定电话
 	private String gt_gender;// 性别 0=女,1=男
 	private String gt_email;// Email地址
 	private String gt_createtime;// 资料创建时间

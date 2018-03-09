@@ -14,6 +14,14 @@ public class Tb_operator {
 	private String op_mobile;// 分机号码
 	private String op_zip;// 邮编
 	private String op_createTime;// 创建时间
+	private int op_state;// 操作员状态
+	
+	public int getOp_state() {
+		return op_state;
+	}
+	public void setOp_state(int op_state) {
+		this.op_state = op_state;
+	}
 	public String getOp_userName() {
 		return op_userName;
 	}

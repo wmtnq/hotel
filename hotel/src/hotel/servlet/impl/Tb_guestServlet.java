@@ -32,4 +32,23 @@ public class Tb_guestServlet extends BaseServlet {
 			e.printStackTrace();
 		}
 	}
+	
+	public void getByCardidTb_guest(HttpServletRequest req, HttpServletResponse resp) {
+		String cardid = req.getParameter("cardid");
+		System.out.println("查询客户:"+cardid);
+		Tb_guest tb_guest = tb_guestService.getByCardidTb_guest(cardid);
+		String returnJSON = "";
+		if(tb_guest!=null) {
+		returnJSON = JSON.toJSONString(tb_guest);
+		}
+		try {
+			PrintWriter out = resp.getWriter();
+			out.print(returnJSON);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -18,13 +18,20 @@ public class Tb_roomcatalogDaoImpl extends BaseDaoDBUtil<Tb_roomcatalog> impleme
 		String sql = "select * from tb_roomcatalog";
 		return super.executeQuery(new BeanListHandler<Tb_roomcatalog>(Tb_roomcatalog.class), sql);
 	}
+	
+	// 获取所有房间类型
+		@Override
+		public List<Tb_roomcatalog> getStateAllTb_roomcatalog() {
+			// TODO Auto-generated method stub
+			String sql = "select * from tb_roomcatalog where rc_state = 1";
+			return super.executeQuery(new BeanListHandler<Tb_roomcatalog>(Tb_roomcatalog.class), sql);
+		}
 
 	// 新增房间类型
 	@Override
 	public int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
-		String sql = "inster into tb_roomcatalog(rc_id,rc_name,rc_bedNumber,rc_prePrice,rc_prediscount,rc_hourbasePrice,rc_perhourPrice)"
-				+ "values(?,?,?,?,?,?,?)";
-		return super.executeUpdate(sql, tb_roomcatalog);
+		String sql = "insert tb_roomcatalog values(?,?,?,?,?,?,?,?)";
+		return super.executeUpdate(sql, tb_roomcatalog.getRc_id(),tb_roomcatalog.getRc_name(),tb_roomcatalog.getRc_bedNumber(),tb_roomcatalog.getRc_prePrice(),tb_roomcatalog.getRc_prediscount(),tb_roomcatalog.getRc_hourbasePrice(),tb_roomcatalog.getRc_perhourPrice(),tb_roomcatalog.getRc_state());
 	}
 
 	// 修改1：通过id获取该房型的类型信息
@@ -44,11 +51,18 @@ public class Tb_roomcatalogDaoImpl extends BaseDaoDBUtil<Tb_roomcatalog> impleme
 		return count;
 	}
 
-	// 删除客房类型：删除客房必须要先删除该类型的客房
+	// 暂停入住该客房类型：暂停入住该客房类型必须要先暂停入住该类型的客房
 	@Override
-	public int delTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
-		String sql = "delete from tb_roomcatalog where rc_id=?";
-		return super.executeUpdate(sql, tb_roomcatalog);
+	public int pauseTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		String sql = "UPDATE tb_roomcatalog SET rc_state = 0 where rc_id=?";
+		return super.executeUpdate(sql, tb_roomcatalog.getRc_id());
+	}
+
+	// 开放入住客房类型：开放入住该客房类型必须要先开放入住该类型的客房
+	@Override
+	public int startTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		String sql = "UPDATE tb_roomcatalog SET rc_state = 1 where rc_id=?";
+		return super.executeUpdate(sql, tb_roomcatalog.getRc_id());
 	}
 
 	public static void main(String[] args) {

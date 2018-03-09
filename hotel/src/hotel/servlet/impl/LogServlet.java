@@ -25,8 +25,12 @@ public class LogServlet extends BaseServlet {
 		System.out.println("log");
 		System.out.println(tb_operator==null);
 		if (tb_operator != null) {
+			if(tb_operator.getOp_state() != 0) {
 			req.getSession().setAttribute("log", tb_operator);
-			returnJSON = "true";
+			returnJSON = "成功";
+			}else {
+				returnJSON = "禁用";
+				}
 		}
 		try {
 			PrintWriter out = resp.getWriter();
@@ -39,13 +43,39 @@ public class LogServlet extends BaseServlet {
 		}
 	}
 
+	//退出
 	public void returnHome(HttpServletRequest req,HttpServletResponse resp) {
 		req.getSession().removeAttribute("log");
 		try {
-			resp.sendRedirect("http://localhost:11170/hotel/home/register.jsp");
+			resp.sendRedirect("http://192.168.10.123:8080/hotel/home/register.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+	
+	//解锁
+		public void delLock(HttpServletRequest req, HttpServletResponse resp) {
+				String opusername = req.getParameter("dellockname");
+				String pass = req.getParameter("dellockpass");
+				System.out.println("log");
+				System.out.println(opusername+":"+pass);
+				Tb_operator tb_operator = tb_operatorService.getByNameByPass(opusername, pass);
+				String returnJSON = "";
+				System.out.println("log");
+				System.out.println(tb_operator==null);
+				if (tb_operator != null) {
+					req.getSession().setAttribute("log", tb_operator);
+					returnJSON = "true";
+				}
+				try {
+					PrintWriter out = resp.getWriter();
+					out.print(returnJSON);
+					out.flush();
+					out.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 }

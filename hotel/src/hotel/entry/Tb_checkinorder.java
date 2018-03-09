@@ -34,6 +34,15 @@ public class Tb_checkinorder {
 	private Tb_balancement tb_balancement;// 结账信息表
 	private Tb_pucategory tb_pucategory;//客户类别
 	private Tb_putype tb_putype;//客户类型
+	private Tb_room Tb_room;//房间信息
+	public Tb_room getTb_room() {
+		return Tb_room;
+	}
+
+	public void setTb_room(Tb_room tb_room) {
+		Tb_room = tb_room;
+	}
+
 	public Tb_pucard getTb_pucard() {
 		return tb_pucard;
 	}

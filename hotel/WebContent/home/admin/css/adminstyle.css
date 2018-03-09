@@ -3,278 +3,87 @@
 /*操作员管理*/
 .roommanage_01div {
 	width: 100%;
-	height: 100%;
+	height: 79%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: #ffffff;
 }
 /*退款审核*/
 .roommanage_02div {
-	width: 100%;
-	height: 100%;
+	width: 1700px;
+	height: 78%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*发票查询*/
 .roommanage_03div {
-	width: 100%;
-	height: 100%;
+	width: 1400px;
+	height: 78%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*信息查询*/
 /*登记查询*/
 .infofind_01div {
-	width: 100%;
-	height: 100%;
+	width: 1400px;
+	height: 78%;
 	display: none;
 	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*会员查询*/
 .infofind_02div {
-	width: 100%;
-	height: 100%;
+	width: 120%;
+	height: 78%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*楼层管理*/
 /*客房管理*/
 .roomset_01div {
 	width: 100%;
-	height: 100%;
+	height: 79%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*客房详情*/
 .roomset_02div {
 	width: 100%;
-	height: 100%;
+	height: 78%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 /*入住管理*/
 /*查询房间*/
 .behindset_01div {
 	width: 100%;
-	height: 100%;
+	height: 92%;
 	display: none;
-	margin-left: 10px;
+	padding-top:30px;
+	padding-left:80px;
 	background-color: white;
 }
 /*申请退房*/
 .behindset_02div {
-	width: 100%;
-	height: 100%;
+	width: 1400px;
+	height: 78%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: #ffffff;
 }
 /*房间类型*/
 .behindset_03div {
 	width: 100%;
-	height: 100%;
+	height: 79%;
 	display: none;
-	margin-left: 10px;
+	padding-top:100px;
 	background-color: white;
 }
 
-.liftroommanagediv {
-	width: 100%;
-	height: 100%;
-	display: none;
-	margin-left: 10px;
-}
-
-.whiteDiv {
-	width: 100%;
-	height: 50px;
-}
-
-.formdiv {
-	width: 500px;
-	height: 400px;
-	border: 1px solid yellow;
-	background-image: url(img/登记入住.jpg);
-	padding: 30px;
-	position: absolute;
-	left: 500px;
-	top: 100px;
-	display: none;
-}
-
-.surebutton {
-	position: absolute;
-	top: 320px;
-	left: 550px;
-	font-weight: 900;
-	font-size: 125%;
-	border-radius: 10px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.listTitle {
-	position: relative;
-	left: 410px;
-	top: 1px;
-	font-size: 33px;
-	font-family: "宋体", "microsoft yahei";
-}
-
-.roompicul {
-	list-style: none; margin : 0px;
-	padding: 0px;
-	margin: 0px;
-}
-/**/
-.modification {
-	position: absolute;
-	width: 500px;
-	height: 400px;
-	border: 1px;
-	display: none;
-}
-
-.modificationDiv {
-	position: relative;
-	top: 40px;
-	left: 250px;
-	text-align: center;
-}
-
-.refund {
-	position: absolute;
-}
-
-.refundDiv {
-	position: relative;
-	top: 40px;
-	text-align: center;
-}
-
-.refund_status {
-	position: absolute;
-	display: none;
-}
-
-.refund_statusDiv {
-	position: relative;
-	top: 40px;
-	left: 250px;
-	text-align: center;
-}
-
-.invoice {
-	/*display: none;*/
-	
-}
-
-.invoiceDiv {
-	position: relative;
-	top: 40px;
-}
-/*增加用户信息*/
-.increase {
-	position: absolute;
-	display: none;
-}
-
-.increaseDiv {
-	position: relative;
-	top: 40px;
-	left: 250px;
-	text-align: center;
-}
-
-.invoicess {
-	position: absolute;
-	display: none;
-}
-
-.invoicesdiv {
-	position: relative;
-	top: 40px;
-	left: 250px;
-	text-align: center;
-}
-
-.invoicesdiv h2 {
-	position: relative;
-	right: 120px;
-}
-
-.jurisdiction {
-	position: absolute;
-}
-
-.jurisdictionDiv {
-	position: relative;
-	top: 40px;
-	left: 250px;
-	text-align: center;
-	display: none;
-}
-
-.jurisdictions {
-	position: absolute;
-}
-
-.roomtypeadd {
-	position: absolute;
-	left: 650px;
-	width: 400px;
-	height: 400px;
-	display: none;
-}
-
-.roomtypechange {
-	position: absolute;
-	left: 650px;
-	width: 400px;
-	height: 400px;
-	display: none;
-}
-
-.roomadd {
-	position: absolute;
-	left: 650px;
-	width: 400px;
-	height: 400px;
-	display: none;
-}
-
-.roomchange {
-	position: absolute;
-	left: 650px;
-	width: 400px;
-	height: 400px;
-	display: none;
-}
-
-.jurisdiction {
-	position: absolute;
-	left: 450px;
-}
-
-.jurisdictionsdiv {
-	position: relative;
-	left: 200px;
-	top: 10px;
-	text-align: center;
-}
-
-.tuifang {
-	margin: 0 auto;
-}
-
-table tr td {
-	border: 1px solid rgba(128, 128, 128, 0.5);
-	font-size: 16px;
-}
 

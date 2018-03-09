@@ -12,6 +12,14 @@ public class Tb_roomcatalog {
 	private double rc_prediscount;// 预订折扣
 	private double rc_hourbasePrice;// 计时最低价
 	private double rc_perhourPrice;// 计时每小时价
+	private int rc_state;// 客房类型状态
+	
+	public int getRc_state() {
+		return rc_state;
+	}
+	public void setRc_state(int rc_state) {
+		this.rc_state = rc_state;
+	}
 	public int getRc_id() {
 		return rc_id;
 	}

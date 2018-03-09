@@ -1,0 +1,42 @@
+2018-03-08 12:38:54.297 设置发送账号[E1029D]信息时,通过主域名[api01.monyun.cn]获取到主IP[114.67.62.211],端口:7901
+2018-03-08 12:38:54.372 设置发送账号[E1029D]信息时,通过备域名[api02.monyun.cn]获取到备IP[114.67.62.211],端口:7901
+2018-03-08 12:38:54.475 短连接,指定账号,使用账号[E1029D]的主IP信息[114.67.62.211:7901]第一次请求网关或者主IP恢复正常，使用主IP请求网关。
+2018-03-08 12:38:55.669 短连接,指定账号,使用账号[E1029D]的主IP信息[114.67.62.211:7901]第一次请求网关或者主IP恢复正常，使用主IP请求网关。
+2018-03-08 12:38:55.676 短连接,指定账号,使用账号[E1029D]的主IP信息[114.67.62.211:7901]第一次请求网关或者主IP恢复正常，使用主IP请求网关。
+2018-03-08 13:14:47.810 向网关请求失败！
+org.apache.http.conn.ConnectTimeoutException: Connect to /114.67.62.211:7901 timed out
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:125)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:123)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:147)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:108)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:641)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:576)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:554)
+	at com.montnets.mwgate.smsutil.HttpPostBiz.executeNotKeepAlivePost(HttpPostBiz.java:310)
+	at com.montnets.mwgate.smsutil.SmsSendBiz.getMoRptFeeByNotKeepAlive(SmsSendBiz.java:558)
+	at com.montnets.mwgate.smsutil.SmsSendConn.getMo(SmsSendConn.java:726)
+	at hotel.util.sendMessage.RecvMoThread.run(RecvMoThread.java:56)
+
+2018-03-08 13:14:47.814 短连接,账号[E1029D]的主IP[114.67.62.211],端口：7901异常,将添加到异常主IP集合中检测。该账号有备IP,备IP信息为114.67.62.211:7901,将切换到备IP。待主IP恢复正常后，再切换回主IP。
+2018-03-08 13:14:48.801 账号[E1029D]的主IP[114.67.62.211]恢复正常使用,端口:7901。检测耗时:107毫秒。
+2018-03-08 13:14:52.823 短连接,指定账号,使用账号[E1029D]的主IP信息[114.67.62.211:7901]第一次请求网关或者主IP恢复正常，使用主IP请求网关。
+2018-03-08 13:17:09.319 向网关请求失败！
+org.apache.http.conn.ConnectTimeoutException: Connect to /114.67.62.211:7901 timed out
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:125)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:123)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:147)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:108)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:641)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:576)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:554)
+	at com.montnets.mwgate.smsutil.HttpPostBiz.executeNotKeepAlivePost(HttpPostBiz.java:310)
+	at com.montnets.mwgate.smsutil.SmsSendBiz.getMoRptFeeByNotKeepAlive(SmsSendBiz.java:558)
+	at com.montnets.mwgate.smsutil.SmsSendConn.getRpt(SmsSendConn.java:852)
+	at hotel.util.sendMessage.RecvRptThread.run(RecvRptThread.java:56)
+
+2018-03-08 13:17:09.324 短连接,账号[E1029D]的主IP[114.67.62.211],端口：7901异常,将添加到异常主IP集合中检测。该账号有备IP,备IP信息为114.67.62.211:7901,将切换到备IP。待主IP恢复正常后，再切换回主IP。
+2018-03-08 13:17:14.431 检测账号[E1029D]备IP是否可用时,检测出备IP[114.67.62.211]可用，端口:7901
+2018-03-08 13:17:14.434 短连接,指定账号,检测到账号[E1029D]可用的备IP信息为:114.67.62.211:7901。检测耗时:103毫秒。
+2018-03-08 13:17:16.038 账号[E1029D]的主IP[114.67.62.211]恢复正常使用,端口:7901。检测耗时:107毫秒。

@@ -23,8 +23,25 @@ public class Tb_roomServiceImpl implements Tb_roomService {
 		List<Tb_room> listrm = tb_roomDao.getAllTb_room();
 		List<Tb_room> list = new ArrayList<Tb_room>();
 		for (Tb_room tb_room : listrm) {
-			Tb_roomcatalog tb_roomcatalog = tb_roomcatalogDao.getByIdTb_roomcatalog(tb_room.getRm_catalog());
-			tb_room.setTb_roomcatalog(tb_roomcatalog);
+			if (tb_room.getRm_catalog() > 0) {
+				Tb_roomcatalog tb_roomcatalog = tb_roomcatalogDao.getByIdTb_roomcatalog(tb_room.getRm_catalog());
+				tb_room.setTb_roomcatalog(tb_roomcatalog);
+			}
+			list.add(tb_room);
+		}
+		return list;
+	}
+
+	// 查询房间的所有信息(查)状态为可入住
+	@Override
+	public List<Tb_room> getStateAllTb_room() {
+		List<Tb_room> listrm = tb_roomDao.getStateAllTb_room();
+		List<Tb_room> list = new ArrayList<Tb_room>();
+		for (Tb_room tb_room : listrm) {
+			if (tb_room.getRm_catalog() > 0) {
+				Tb_roomcatalog tb_roomcatalog = tb_roomcatalogDao.getByIdTb_roomcatalog(tb_room.getRm_catalog());
+				tb_room.setTb_roomcatalog(tb_roomcatalog);
+			}
 			list.add(tb_room);
 		}
 		return list;
@@ -58,10 +75,24 @@ public class Tb_roomServiceImpl implements Tb_roomService {
 		return count;
 	}
 
-	// 删除客房信息(删)
+	// 停止客房信息(删)
 	@Override
-	public int delTb_room(Tb_room tb_room) {
-		int count = tb_roomDao.delTb_room(tb_room);
+	public int pauseTb_room(Tb_room tb_room) {
+		int count = tb_roomDao.pauseTb_room(tb_room);
+		return count;
+	}
+
+	// 开启客房信息(删)
+	@Override
+	public int startTb_room(Tb_room tb_room) {
+		int count = 0;
+		Tb_room room = tb_roomDao.getByIdTb_room(tb_room.getRm_id());
+		if (room != null) {
+			int state = tb_roomcatalogDao.getByIdTb_roomcatalog(room.getRm_catalog()).getRc_state();
+			if (state == 1) {
+				count = tb_roomDao.startTb_room(tb_room);
+			}
+		}
 		return count;
 	}
 
@@ -69,6 +100,8 @@ public class Tb_roomServiceImpl implements Tb_roomService {
 	@Override
 	public Tb_room getByIdTb_room(int rm_id) {
 		Tb_room Tb_room = tb_roomDao.getByIdTb_room(rm_id);
+		Tb_roomcatalog tb_roomcatalog = tb_roomcatalogDao.getByIdTb_roomcatalog(Tb_room.getRm_catalog());
+		Tb_room.setTb_roomcatalog(tb_roomcatalog);
 		return Tb_room;
 	}
 

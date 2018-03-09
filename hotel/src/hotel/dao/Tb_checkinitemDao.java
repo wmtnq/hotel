@@ -28,7 +28,7 @@ public interface Tb_checkinitemDao {
 	int updTb_checkinitem(Tb_balancement tb_balancement);
 
 	//入住添加1：添加入住信息登记表
-	int addTb_checkinitem(Tb_checkinitem tb_checkinitem);
+	long addTb_checkinitem(Tb_checkinitem tb_checkinitem);
 	
 	// 入住添加2：更新登记表订单号
 	int updTb_checkinorder(int cio_id, int cim_id);

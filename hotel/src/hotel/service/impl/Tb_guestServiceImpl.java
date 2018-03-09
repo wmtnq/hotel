@@ -20,6 +20,7 @@ import hotel.entry.Tb_pucategory;
 import hotel.entry.Tb_pucountry;
 import hotel.entry.Tb_putype;
 import hotel.service.Tb_guestService;
+import hotel.util.PublicMethod;
 
 public class Tb_guestServiceImpl implements Tb_guestService {
 
@@ -56,23 +57,28 @@ public class Tb_guestServiceImpl implements Tb_guestService {
 				// 获取证件类型
 				if (tb_guest.getGt_cardcatalog() > 0) {
 					Tb_pucard tb_pucard = tb_pucardDao.getByIdTb_pucard(tb_guest.getGt_cardcatalog());
-					if(tb_pucard!=null) {
+					if (tb_pucard != null) {
 						tb_guest.setTb_pucard(tb_pucard);
 					}
 				}
 				// 获取客户类型
-				if(tb_guest.getGt_type()>0) {
+				if (tb_guest.getGt_type() > 0) {
 					Tb_putype tb_putype = tb_putypeDao.getByIdTb_putype(tb_guest.getGt_type());
-					if(tb_putype!=null) {
+					if (tb_putype != null) {
 						tb_guest.setTb_putype(tb_putype);
 					}
 				}
 				// 获取客户类别(会员)
-				if(tb_guest.getGt_pucategory()>0) {
-					Tb_pucategory tb_pucategory = tb_pucategoryDao.getByIdTb_pucategory(tb_guest.getGt_pucategory());
-					if(tb_pucategory!=null) {
+				if (tb_guest.getGt_expenditure() != "") {
+					Tb_pucategory tb_pucategory = tb_pucategoryDao
+							.getByMoneyTb_pucategory(Integer.parseInt(tb_guest.getGt_expenditure()));
+					if (tb_pucategory != null) {
 						tb_guest.setTb_pucategory(tb_pucategory);
+						tb_guestDao.updGt_expenditure(tb_guest.getGt_id(), tb_pucategory.getPcg_cio());
 					}
+				}
+				if (tb_guest.getGt_createtime() != "" && tb_guest.getGt_createtime() != "") {
+					tb_guest.setGt_createtime(PublicMethod.getDateTime(tb_guest.getGt_createtime()));
 				}
 				list.add(tb_guest);
 			}
@@ -90,5 +96,55 @@ public class Tb_guestServiceImpl implements Tb_guestService {
 	public static void main(String[] args) {
 		Tb_guestServiceImpl tb = new Tb_guestServiceImpl();
 		System.out.println(tb.getAllTb_guest().get(0).getTb_pucategory().getPcg_categoryName());
+	}
+
+	// 通过身份证号获取客户实体
+	@Override
+	public Tb_guest getByCardidTb_guest(String cardid) {
+		Tb_guest tb_guest = tb_guestDao.getByCardidTb_guest(cardid);
+		if (tb_guest != null) {
+			// 获取性别
+			if (tb_guest.getGt_gender() != null && tb_guest.getGt_gender() != "") {
+				if (Integer.parseInt(tb_guest.getGt_gender()) == 0) {
+					tb_guest.setGt_gender("女");
+				} else {
+					tb_guest.setGt_gender("男");
+				}
+			}
+			// 获取国籍
+			if (tb_guest.getGt_pucategory() > 0) {
+				Tb_pucountry tb_pucountry = tb_pucountryDao.getByIdTb_pucountry(tb_guest.getGt_country());
+				// 保存国籍
+				if (tb_pucountry != null) {
+					tb_guest.setTb_pucountry(tb_pucountry);
+				}
+			}
+			// 获取证件类型
+			if (tb_guest.getGt_cardcatalog() > 0) {
+				Tb_pucard tb_pucard = tb_pucardDao.getByIdTb_pucard(tb_guest.getGt_cardcatalog());
+				if (tb_pucard != null) {
+					tb_guest.setTb_pucard(tb_pucard);
+				}
+			}
+			// 获取客户类型
+			if (tb_guest.getGt_type() > 0) {
+				Tb_putype tb_putype = tb_putypeDao.getByIdTb_putype(tb_guest.getGt_type());
+				if (tb_putype != null) {
+					tb_guest.setTb_putype(tb_putype);
+				}
+			}
+			// 获取客户类别(会员)
+			if (tb_guest.getGt_pucategory() >0) {
+				Tb_pucategory tb_pucategory = tb_pucategoryDao
+						.getByIdTb_pucategory(tb_guest.getGt_pucategory());
+				if (tb_pucategory != null) {
+					tb_guest.setTb_pucategory(tb_pucategory);
+				}
+			}
+			if (tb_guest.getGt_createtime() != "" && tb_guest.getGt_createtime() != "") {
+				tb_guest.setGt_createtime(PublicMethod.getDateTime(tb_guest.getGt_createtime()));
+			}
+		}
+		return tb_guest;
 	}
 }

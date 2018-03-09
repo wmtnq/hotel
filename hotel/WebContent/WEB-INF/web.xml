@@ -5,6 +5,73 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>hotel</display-name>
 
+
+		
+	<!--上传图片 -->
+	<servlet>
+		<servlet-name>SDKDemo</servlet-name>
+		<servlet-class>hotel.servlet.impl.SDKDemoImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SDKDemo</servlet-name>
+		<url-pattern>/home/html/SDKDemo.do</url-pattern>
+	</servlet-mapping>
+	<!--支付类型 -->
+	<!--上传图片 -->
+	<servlet>
+		<servlet-name>UpAjax</servlet-name>
+		<servlet-class>hotel.util.updimg.UpAjax</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpAjax</servlet-name>
+		<url-pattern>/home/admin/imgupload</url-pattern>
+	</servlet-mapping>
+	<!--支付类型 -->
+	<servlet>
+		<servlet-name>Tb_pupaymenttypeServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_pupaymenttypeServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_pupaymenttypeServlet</servlet-name>
+		<url-pattern>/home/admin/tb_pupaymenttype.do</url-pattern>
+	</servlet-mapping>
+	<!--客户类别 -->
+	<servlet>
+		<servlet-name>Tb_pucategoryServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_pucategoryServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_pucategoryServlet</servlet-name>
+		<url-pattern>/home/admin/tb_pucategory.do</url-pattern>
+	</servlet-mapping>
+	<!--客户类型 -->
+	<servlet>
+		<servlet-name>Tb_putype</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_putypeServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_putype</servlet-name>
+		<url-pattern>/home/admin/tb_putype.do</url-pattern>
+	</servlet-mapping>
+	<!--国籍 -->
+	<servlet>
+		<servlet-name>Tb_pucountry</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_pucountryServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_pucountry</servlet-name>
+		<url-pattern>/home/admin/tb_pucountry.do</url-pattern>
+	</servlet-mapping>
+	<!--证件类型 -->
+	<servlet>
+		<servlet-name>Tb_pucard</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_pucardServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_pucard</servlet-name>
+		<url-pattern>/home/admin/tb_pucard.do</url-pattern>
+	</servlet-mapping>
+
 	<!--客房信息 -->
 	<servlet>
 		<servlet-name>Tb_roomServlet</servlet-name>
@@ -12,7 +79,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_roomServlet</servlet-name>
-		<url-pattern>/admin/tb_room.do</url-pattern>
+		<url-pattern>/home/admin/tb_room.do</url-pattern>
 	</servlet-mapping>
 
 	<!--客房类型 -->
@@ -22,7 +89,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_roomcatalogServlet</servlet-name>
-		<url-pattern>/admin/tb_roomcatalog.do</url-pattern>
+		<url-pattern>/home/admin/tb_roomcatalog.do</url-pattern>
 	</servlet-mapping>
 
 
@@ -33,9 +100,18 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_balancementServlet</servlet-name>
-		<url-pattern>/admin/tb_balancement.do</url-pattern>
+		<url-pattern>/home/admin/tb_balancement.do</url-pattern>
 	</servlet-mapping>
 
+	<!--订单信息 -->
+	<servlet>
+		<servlet-name>Tb_checkinorderServlet</servlet-name>
+		<servlet-class>hotel.servlet.impl.Tb_checkinorderServletImpl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Tb_checkinorderServlet</servlet-name>
+		<url-pattern>/home/admin/tb_checkinorder.do</url-pattern>
+	</servlet-mapping>
 
 	<!--登记表信息 -->
 	<servlet>
@@ -44,7 +120,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_checkinitemServlet</servlet-name>
-		<url-pattern>/admin/tb_checkinitem.do</url-pattern>
+		<url-pattern>/home/admin/tb_checkinitem.do</url-pattern>
 	</servlet-mapping>
 
 
@@ -55,7 +131,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_guestSertvlet</servlet-name>
-		<url-pattern>/admin/tb_guest.do</url-pattern>
+		<url-pattern>/home/admin/tb_guest.do</url-pattern>
 	</servlet-mapping>
 
 	<!--操作员信息 -->
@@ -65,10 +141,10 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Tb_operatorServlet</servlet-name>
-		<url-pattern>/admin/tb_operator.do</url-pattern>
+		<url-pattern>/home/admin/tb_operator.do</url-pattern>
 	</servlet-mapping>
-	
-	<!--登录 -->
+
+	<!--登录 退出 -->
 	<servlet>
 		<servlet-name>LogServlet</servlet-name>
 		<servlet-class>hotel.servlet.impl.LogServlet</servlet-class>
@@ -77,8 +153,8 @@
 		<servlet-name>LogServlet</servlet-name>
 		<url-pattern>/home/log.do</url-pattern>
 	</servlet-mapping>
-	
-	 <!-- 过滤是否登录 -->
+
+	<!-- 过滤是否登录 -->
 	<filter>
 		<filter-name>LogFiter</filter-name>
 		<filter-class>hotel.filter.LogFilter</filter-class>
@@ -87,9 +163,9 @@
 		<filter-name>LogFiter</filter-name>
 		<url-pattern>/home/admin/*</url-pattern>
 	</filter-mapping>
-	
-	
-		<!-- 过滤字符集 -->
+
+
+	<!-- 过滤字符集 -->
 	<filter>
 		<filter-name>ChaFiter</filter-name>
 		<filter-class>hotel.filter.ChaFilter</filter-class>

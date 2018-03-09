@@ -19,4 +19,12 @@ public interface Tb_balancementService {
 	// 获取结账中退款金额不为0的条目
 	List<Tb_balancement> getAllRefundState();
 
+	// 更改发票信息
+	int updrpTb_balancement(Tb_balancement tb_balancement);
+
+	// 更改退款信息
+	int updrsTb_balancement(Tb_balancement tb_balancement);
+
+	//通过订单编号获取账单
+	Tb_balancement getByCdidTb_balancement(int cdid);
 }

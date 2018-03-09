@@ -19,6 +19,12 @@ public class Tb_roomcatalogServiceImpl implements Tb_roomcatalogService {
 		return tb_roomcatalogDao.getAllTb_roomcatalog();
 	}
 
+	// 查询所有房间类型状态为可入住数据(查)
+	@Override
+	public List<Tb_roomcatalog> getStateAllTb_roomcatalog() {
+		return tb_roomcatalogDao.getStateAllTb_roomcatalog();
+	}
+
 	// 新增客房类型(增)
 	@Override
 	public int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
@@ -37,18 +43,42 @@ public class Tb_roomcatalogServiceImpl implements Tb_roomcatalogService {
 		return tb_roomcatalogDao.updTb_roomcatalog(tb_roomcatalog);
 	}
 
-	// 删除客房类型注：删除客房类型要先删除该类型的客房(删)
+	// 暂停入住该客房类型注：暂停入住客房类型要先暂停入住该类型的客房(删)
 	@Override
-	public boolean delTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+	public boolean pauseTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
 		boolean flag = true;
-		if (tb_roomDao.delTb_rooms(tb_roomcatalog) <= 0) {
+		if (tb_roomDao.pauseTb_rooms(tb_roomcatalog) <= 0) {
 			flag = false;
 		}
-		if (tb_roomcatalogDao.delTb_roomcatalog(tb_roomcatalog) <= 0) {
+		if (tb_roomcatalogDao.pauseTb_roomcatalog(tb_roomcatalog) <= 0) {
 			flag = false;
 		}
 		return flag;
 
 	}
 
+	// 开放入住该客房类型注：暂停入住客房类型要先暂停入住该类型的客房(删)
+	@Override
+	public boolean startTb_roomcatalog(Tb_roomcatalog tb_roomcatalog) {
+		boolean flag = true;
+		if (tb_roomDao.startTb_rooms(tb_roomcatalog) <= 0) {
+			flag = false;
+		}
+		if (tb_roomcatalogDao.startTb_roomcatalog(tb_roomcatalog) <= 0) {
+			flag = false;
+		}
+		return flag;
+
+	}
+
+	// 开放入住该客房类型注：暂停入住客房类型要先暂停入住该类型的客房(删)
+	@Override
+	public boolean startTb_roomcatalogx(Tb_roomcatalog tb_roomcatalog) {
+		boolean flag = true;
+		if (tb_roomcatalogDao.startTb_roomcatalog(tb_roomcatalog) <= 0) {
+			flag = false;
+		}
+		return flag;
+
+	}
 }

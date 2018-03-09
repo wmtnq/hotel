@@ -12,7 +12,10 @@ public interface Tb_roomcatalogDao {
 
 	// 获取所有客房类型信息表(Tb_roomcatalog)
 	List<Tb_roomcatalog> getAllTb_roomcatalog();
-
+	
+	// 获取所有可以入住的信息表
+	List<Tb_roomcatalog> getStateAllTb_roomcatalog();
+	
 	// 新增客房类型
 	int addTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
 
@@ -22,7 +25,10 @@ public interface Tb_roomcatalogDao {
 	// 修改2：更新客房类型
 	int updTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
 
-	// 删除客房类型注：删除客房类型要先删除该类型的客房
-	int delTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
+	// 暂停入住该客房类型注：暂停入住该客房类型要先暂停入住该类型的客房
+	int pauseTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
+	
+	// 开放入住该客房类型注：开放入住该客房类型要先开放入住该类型的客房
+	int startTb_roomcatalog(Tb_roomcatalog tb_roomcatalog);
 
 }

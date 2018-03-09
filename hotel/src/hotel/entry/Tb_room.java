@@ -10,12 +10,21 @@ public class Tb_room {
 	private String rm_floor;// 所属楼层
 	private double rm_prctPrice;// 实际价格
 	private String rm_telphone;// 分机电话
-	private int rm_state;// 客房状态 0未入住  1已预订 2已入住 3维修中
+	private int rm_state;// 客房状态 0未入住 1已预订 2已入住 3维修中
 	private int rm_available;// 是否可用 0不可用，1可用
 	private int rm_catalog;// 房间类型
 	private String rm_picture;// 房间图片
 	private double rm_prctdiscount;// 实际折扣
+	private int rm_statex;// 房间状态
 	private Tb_roomcatalog tb_roomcatalog;// 房间类型
+
+	public int getRm_statex() {
+		return rm_statex;
+	}
+
+	public void setRm_statex(int rm_statex) {
+		this.rm_statex = rm_statex;
+	}
 
 	public int getRm_id() {
 		return rm_id;

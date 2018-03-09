@@ -23,8 +23,14 @@ public interface Tb_operatorService {
 	public int updTb_operator(Tb_operator tb_operator);
 
 	// 删除操作员以用户名为条件
-	public int delTb_operator(String opusername);
+	public int pauseTb_operator(String opusername);
+	
+	// 删除操作员以用户名为条件
+	public int startTb_operator(String opusername);
 
 	// 验证登录
 	public Tb_operator getByNameByPass(String opusername, String pass);
+	
+	// 修改密码
+	public int updPassTb_operator(Tb_operator tb_operator);
 }

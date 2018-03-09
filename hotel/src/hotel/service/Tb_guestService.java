@@ -17,4 +17,8 @@ public interface Tb_guestService {
 	//入住添加3：添加客户信息
 	int addTb_guest(Tb_checkinitem tb_checkinitem);
 
+	//通过身份证号获取客户实体
+	Tb_guest getByCardidTb_guest(String cardid);
+	
+	
 }

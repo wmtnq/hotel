@@ -317,11 +317,16 @@ input.checkbox {
 											"type" : "post",
 											"data" : {"name" : name,"pass" : pass},
 											"success" : function(res) {
-												if (res) {
-													window.location = "admin/homepage.jsp";
+												if(res!="禁用"){
+													if (res=="成功") {
+														window.location = "admin/homepage.jsp";
+													}else{
+														$(".checkbox").val("用户名或密码错误！");
+													}
 												}else{
-													$(".checkbox").val("用户名或密码错误！");
+													$(".checkbox").val("您的用户名异常请联系管理员！");
 												}
+												
 											}
 										});
 							} else {

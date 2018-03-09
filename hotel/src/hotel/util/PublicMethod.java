@@ -39,7 +39,10 @@ public class PublicMethod {
 
 	// 截取时间
 	public static String getDateTime(String date) {
-		String datex = date.substring(0, (date.indexOf('.')));
+		String datex = "";
+		if (date != "") {
+			datex = date.substring(0, (date.indexOf('.')));
+		}
 		return datex;
 	}
 
@@ -53,74 +56,104 @@ public class PublicMethod {
 		Tb_pucardDao tb_pucardDao = new Tb_pucardDaoImpl();
 		Tb_pucategoryDao tb_pucategoryDao = new Tb_pucategoryDaoImpl();
 		Tb_putypeDao tb_putypeDao = new Tb_putypeDaoImpl();
+		Tb_pucountryDao tb_pucountryDao = new Tb_pucountryDaoImpl();
 		List<Tb_checkinitem> list = new ArrayList<Tb_checkinitem>();
 		if (!listck.isEmpty()) {
+			Tb_checkinorder tb_checkinorder = null;
+			Tb_guest tb_guest = null;
+			Tb_pupaymenttype tb_pupaymenttype = null;
+			Tb_pucard tb_pucard = null;
+			Tb_pucategory tb_pucategory = null;
+			Tb_room tb_room = null;
+			Tb_putype tb_putype = null;
 			for (Tb_checkinitem tb_checkinitem : listck) {
 				// 获取房间信息
-				Tb_room tb_room = null;
 				if (tb_checkinitem.getCim_roomId() > 0) {
 					tb_room = tb_roomDao.getByIdTb_room(tb_checkinitem.getCim_roomId());
 					if (tb_room != null) {
 						tb_checkinitem.setTb_room(tb_room);
 					}
 				}
-				// 获取订单信息并存进Tb_checkinitem对象
-				Tb_checkinorder tb_checkinorder = null;
-				Tb_guest tb_guest = null;
-				Tb_pupaymenttype tb_pupaymenttype = null;
-				Tb_pucard tb_pucard = null;
-				Tb_pucategory tb_pucategory = null;
+				// 获取订单信息并存进Tb_checkinorder对象
 				if (tb_checkinitem.getCim_chechinorderId() > 0) {
 					tb_checkinorder = tb_checkinorderDao.getTb_checkinorderRow(tb_checkinitem.getCim_chechinorderId());
 					// 获取订单信息客户实体
 					if (tb_checkinorder != null) {
 						if (tb_checkinorder.getCio_guestID() > 0) {
 							tb_guest = tb_guestDao.getByIdTb_guest(tb_checkinorder.getCio_guestID());
-							tb_checkinorder.setTb_guest(tb_guest);
+							// 获取性别
+							if (tb_guest.getGt_gender() != null && tb_guest.getGt_gender() != "") {
+								if (Integer.parseInt(tb_guest.getGt_gender()) == 0) {
+									tb_guest.setGt_gender("女");
+								} else {
+									tb_guest.setGt_gender("男");
+								}
+							}
+							// 获取国籍
+							if (tb_guest.getGt_pucategory() > 0) {
+								Tb_pucountry tb_pucountry = tb_pucountryDao
+										.getByIdTb_pucountry(tb_guest.getGt_country());
+								// 保存国籍
+								if (tb_pucountry != null) {
+									tb_guest.setTb_pucountry(tb_pucountry);
+								}
+							}
+							// 获取证件类型
+							if (tb_guest.getGt_cardcatalog() > 0) {
+								tb_pucard = tb_pucardDao.getByIdTb_pucard(tb_guest.getGt_cardcatalog());
+								if (tb_pucard != null) {
+									tb_guest.setTb_pucard(tb_pucard);
+									tb_checkinorder.setTb_pucard(tb_pucard);
+								}
+							}
+							// 获取客户类型
+							if (tb_guest.getGt_type() > 0) {
+								tb_putype = tb_putypeDao.getByIdTb_putype(tb_guest.getGt_type());
+								if (tb_putype != null) {
+									tb_guest.setTb_putype(tb_putype);
+									tb_checkinorder.setTb_putype(tb_putype);
+								}
+							}
+							// 获取客户类别(会员)
+							if (tb_guest.getGt_expenditure() != "") {
+								tb_pucategory = tb_pucategoryDao.getByIdTb_pucategory(tb_guest.getGt_cardcatalog());
+								if (tb_pucategory != null) {
+									tb_guest.setTb_pucategory(tb_pucategory);
+									tb_checkinorder.setTb_pucategory(tb_pucategory);
+									tb_guestDao.updGt_expenditure(tb_guest.getGt_id(), tb_pucategory.getPcg_cio());
+								}
+							}
 						}
-						// 获取订单支付方式
-						if (tb_checkinorder.getCio_paymentmodel() > 1) {
-							tb_pupaymenttype = tb_pupaymenttypeDao
-									.getByIdTb_pupaymenttype(tb_checkinorder.getCio_paymentmodel());
-						} else {
-							tb_pupaymenttype = tb_pupaymenttypeDao.getByIdTb_pupaymenttype(1);
-						}
-						tb_checkinorder.setTb_pupaymenttype(tb_pupaymenttype);
-						// 获取证件类型
-						if (tb_checkinorder.getCio_guestCardCatalog() > 0) {
-							tb_pucard = tb_pucardDao.getByIdTb_pucard(tb_checkinorder.getCio_guestCardCatalog());
-							tb_checkinorder.setTb_pucard(tb_pucard);
-						}
-						// 获取客户类型
-						if (tb_checkinorder.getCio_guestCatalog() > 0) {
-							tb_pucategory = tb_pucategoryDao
-									.getByIdTb_pucategory(tb_checkinorder.getCio_guestCatalog());
-							tb_checkinorder.setTb_pucategory(tb_pucategory);
-						}
-						// 获取客户类别
-						if (tb_checkinorder.getCio_guestType() > 0) {
-							Tb_putype tb_putype = tb_putypeDao.getByIdTb_putype(tb_checkinorder.getCio_guestType());
-							tb_checkinorder.setTb_putype(tb_putype);
-						}
-						// 截取入住时间
-						if (tb_checkinorder.getCio_inDateTime() != null && tb_checkinorder.getCio_inDateTime() != "") {
-							tb_checkinorder
-									.setCio_inDateTime(PublicMethod.getDateTime(tb_checkinorder.getCio_inDateTime()));
-						}
-						// 截取预计离开时间
-						if (tb_checkinorder.getCio_outDateTime() != null
-								&& tb_checkinorder.getCio_outDateTime() != "") {
-							tb_checkinorder
-									.setCio_outDateTime(PublicMethod.getDateTime(tb_checkinorder.getCio_outDateTime()));
-						}
-						// 截取实际离开时间
-						if (tb_checkinorder.getCio_prctOutDateTime() != null
-								&& tb_checkinorder.getCio_prctOutDateTime() != "") {
-							tb_checkinorder.setCio_prctOutDateTime(
-									PublicMethod.getDateTime(tb_checkinorder.getCio_prctOutDateTime()));
-						}
-						tb_checkinitem.setTb_checkinorder(tb_checkinorder);
+						tb_checkinorder.setTb_guest(tb_guest);
+						tb_checkinitem.setTb_guest(tb_guest);
 					}
+					// 获取订单支付方式
+					if (tb_checkinorder.getCio_paymentmodel() > 1) {
+						tb_pupaymenttype = tb_pupaymenttypeDao
+								.getByIdTb_pupaymenttype(tb_checkinorder.getCio_paymentmodel());
+						
+					} else {
+						tb_pupaymenttype = tb_pupaymenttypeDao.getByIdTb_pupaymenttype(1);
+					}
+					tb_checkinorder.setTb_pupaymenttype(tb_pupaymenttype);
+
+					// 截取入住时间
+					if (tb_checkinorder.getCio_inDateTime() != null && tb_checkinorder.getCio_inDateTime() != "") {
+						tb_checkinorder
+								.setCio_inDateTime(PublicMethod.getDateTime(tb_checkinorder.getCio_inDateTime()));
+					}
+					// 截取预计离开时间
+					if (tb_checkinorder.getCio_outDateTime() != null && tb_checkinorder.getCio_outDateTime() != "") {
+						tb_checkinorder
+								.setCio_outDateTime(PublicMethod.getDateTime(tb_checkinorder.getCio_outDateTime()));
+					}
+					// 截取实际离开时间
+					if (tb_checkinorder.getCio_prctOutDateTime() != null
+							&& tb_checkinorder.getCio_prctOutDateTime() != "") {
+						tb_checkinorder.setCio_prctOutDateTime(
+								PublicMethod.getDateTime(tb_checkinorder.getCio_prctOutDateTime()));
+					}
+					tb_checkinitem.setTb_checkinorder(tb_checkinorder);
 				}
 				// 获取账单信息
 				if (tb_checkinorder.getCio_id() > 0) {
@@ -134,6 +167,10 @@ public class PublicMethod {
 						if (tb_room != null) {
 							tb_balancement.setTb_room(tb_room);
 						}
+						if (tb_pupaymenttype != null) {
+							tb_balancement.setTb_pupaymenttype(tb_pupaymenttype);
+						}
+						// 截取创建时间
 						if (tb_balancement.getBm_createTime() != null && tb_balancement.getBm_createTime() != "") {
 							tb_balancement
 									.setBm_createTime(PublicMethod.getDateTime(tb_balancement.getBm_createTime()));
@@ -141,13 +178,20 @@ public class PublicMethod {
 						tb_checkinitem.setTb_balancement(tb_balancement);
 					}
 				}
-				// 截取正确的入住时间(去掉.0)
-				if (tb_checkinitem.getCim_inDateTime() != null && tb_checkinitem.getCim_inDateTime() != "") {
-					tb_checkinitem.setCim_inDateTime(PublicMethod.getDateTime(tb_checkinitem.getCim_inDateTime()));
+				if (tb_checkinitem.getCim_inDateTime() != "" && tb_checkinitem.getCim_inDateTime() != null) {
+					tb_checkinitem.setCim_inDateTime(getDateTime(tb_checkinitem.getCim_inDateTime()));
 				}
-				// 截取正确的离开时间(去掉.0)
-				if (tb_checkinitem.getCim_outdateTime() != null && tb_checkinitem.getCim_outdateTime() != "") {
-					tb_checkinitem.setCim_outdateTime(PublicMethod.getDateTime(tb_checkinitem.getCim_outdateTime()));
+				if (tb_checkinitem.getCim_outdateTime() != "" && tb_checkinitem.getCim_outdateTime() != null) {
+					tb_checkinitem.setCim_outdateTime(getDateTime(tb_checkinitem.getCim_outdateTime()));
+				}
+				if (tb_guest.getGt_name() != "") {
+					tb_checkinitem.setCim_name(tb_guest.getGt_name());
+				}
+				if (tb_guest.getGt_cardId() != "") {
+					tb_checkinitem.setCim_cardId(tb_guest.getGt_cardId());
+				}
+				if (tb_guest != null) {
+					tb_checkinitem.setCim_phone(tb_guest.getGt_telPhone());
 				}
 				list.add(tb_checkinitem);
 			}
@@ -188,7 +232,7 @@ public class PublicMethod {
 					}
 				}
 				if (tb_balancement.getBm_paymentmodel() > 0) {
-					//获取支付类型
+					// 获取支付类型
 					Tb_pupaymenttype tb_pupaymenttype = Tb_pupaymenttypeDao
 							.getByIdTb_pupaymenttype(tb_balancement.getBm_paymentmodel());
 					tb_balancement.setTb_pupaymenttype(tb_pupaymenttype);
@@ -227,14 +271,18 @@ public class PublicMethod {
 						}
 					}
 					// 获取客户类别(会员)
-					if (tb_guest.getGt_pucategory() > 0) {
+					if (tb_guest.getGt_cardcatalog() > 0) {
 						Tb_pucategory tb_pucategory = tb_pucategoryDao
-								.getByIdTb_pucategory(tb_guest.getGt_pucategory());
+								.getByIdTb_pucategory(tb_guest.getGt_cardcatalog());
 						if (tb_pucategory != null) {
 							tb_guest.setTb_pucategory(tb_pucategory);
+							tb_guestDao.updGt_expenditure(tb_guest.getGt_id(), tb_pucategory.getPcg_cio());
 						}
 					}
 					tb_balancement.setTb_guest(tb_guest);
+					// 截取日期
+					tb_balancement.setBm_createTime(getDateTime(tb_balancement.getBm_createTime()));
+
 				}
 				list.add(tb_balancement);
 			}

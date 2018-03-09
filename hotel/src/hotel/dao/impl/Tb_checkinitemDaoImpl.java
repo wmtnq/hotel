@@ -23,16 +23,17 @@ public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> impleme
 	// 查询所有入住登记信息表(Tb_checkinitem)和入住登记订单表(tb_checkinorder)和结账信息表(tb_balancement)筛选状态(CIMSTATE);
 	@Override
 	public List<Tb_checkinitem> getStatusTb_checkinitemAndTb_checkinorderAndTb_balancement(int state) {
-		String prepardSql = "SELECT * FROM tb_checkinitem where cim_state != ?";
+		String prepardSql = "SELECT * FROM tb_checkinitem where cim_state != ? ORDER BY cim_state,-cim_inDateTime";
 		return super.executeQuery(new BeanListHandler<Tb_checkinitem>(Tb_checkinitem.class), prepardSql, state);
 	}
 
 	// 模糊查询筛选订单、登记表、账单多表联查中匹配的条目并输出
 	@Override
 	public List<Tb_checkinitem> getAllTb_checkinitemAndTb_checkinorderAndTb_balancement(String value) {
-		String prepardSql = "SELECT * FROM tb_checkinitem join tb_checkinorder on tb_checkinitem.cim_id=tb_checkinorder.cio_orderid join tb_balancement on tb_balancement.bm_checkinorderId=tb_checkinitem.cim_id WHERE bm_cardId LIKE CONCAT(?,'%') OR cio_id LIKE CONCAT(?,'%') OR bm_id LIKE CONCAT(?,'%')";
+		int valuex = Integer.parseInt(value);
+		String prepardSql = "SELECT * FROM tb_checkinitem left join tb_checkinorder on tb_checkinitem.cim_id=tb_checkinorder.cio_orderid left join tb_balancement on tb_balancement.bm_checkinorderId=tb_checkinitem.cim_id WHERE tb_checkinorder.cio_guestCardId LIKE CONCAT(?,'%') OR cio_id LIKE CONCAT(?,'%') OR bm_id LIKE CONCAT(?,'%')";
 		List<Tb_checkinitem> list = super.executeQuery(new BeanListHandler<Tb_checkinitem>(Tb_checkinitem.class),
-				prepardSql, value, value, value);
+				prepardSql, valuex, valuex, valuex);
 		return list;
 	}
 
@@ -56,9 +57,9 @@ public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> impleme
 
 	// 入住添加1：添加入住信息登记表
 	@Override
-	public int addTb_checkinitem(Tb_checkinitem tb_checkinitem) {
+	public long addTb_checkinitem(Tb_checkinitem tb_checkinitem) {
 		String prepardSql = "INSERT tb_checkinitem VALUES(?,?,?,?,?,?,?,?) ";
-		int count = (int) super.executeUpdata(prepardSql, tb_checkinitem.getCim_id(),
+		long count = (long) super.executeUpdata(prepardSql, tb_checkinitem.getCim_id(),
 				tb_checkinitem.getCim_chechinorderId(), tb_checkinitem.getCim_roomId(),
 				tb_checkinitem.getCim_prctPrice(), tb_checkinitem.getCim_discount(), tb_checkinitem.getCim_inDateTime(),
 				tb_checkinitem.getCim_outdateTime(), tb_checkinitem.getCim_state());
@@ -68,9 +69,13 @@ public class Tb_checkinitemDaoImpl extends BaseDaoDBUtil<Tb_checkinitem> impleme
 	@Override
 	// 入住添加2：更新登记表订单号
 	public int updTb_checkinorder(int cio_id, int cim_id) {
-		String prepardSql = "Update tb_checkinorder set cim_chechinorderId = ? where cim_id =  ? ";
-		int count = super.executeUpdate(prepardSql, cim_id, cio_id);
+		String prepardSql = "UPDATE tb_checkinitem SET cim_chechinorderId = ? where cim_id =  ? ";
+		int count = super.executeUpdate(prepardSql, cio_id, cim_id);
 		return count;
 	}
 
+	public static void main(String[] args) {
+		Tb_checkinitemDaoImpl tb_checkinitemDaoImpl = new Tb_checkinitemDaoImpl();
+		System.out.println(tb_checkinitemDaoImpl.getStatusTb_checkinitemAndTb_checkinorderAndTb_balancement(2).size());
+	}
 }

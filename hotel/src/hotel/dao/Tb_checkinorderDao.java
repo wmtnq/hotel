@@ -15,7 +15,7 @@ public interface Tb_checkinorderDao {
 	int updTb_checkinorder(Tb_balancement tb_balancement);
 
 	//入住添加2：入住登记订单表
-	int addTb_checkinorder(Tb_checkinitem tb_checkinitem);
+	long addTb_checkinorder(Tb_checkinitem tb_checkinitem);
 	
 	//查询订单2：通过登记编号查询订单
 	Tb_checkinorder getTb_checkinorderRow(int orderId);

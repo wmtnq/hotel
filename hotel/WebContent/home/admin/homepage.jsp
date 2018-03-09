@@ -546,13 +546,13 @@ video {
 						<span></span>酒店首页
 					</h4>
 					<div class="list-item none">
-						<a href="http://192.168.10.123:8080/hotel/home/html/index.jsp"
+						<a href="http://locahost:8080/hotel/home/html/index.jsp"
 							target="_blank">酒店首页</a> <a
-							href="http://192.168.10.123:8080/hotel/home/html/gallery.jsp"
+							href="http://locahost:8080/hotel/home/html/gallery.jsp"
 							target="_blank">酒店一景</a> <a
-							href="http://192.168.10.123:8080/hotel/home/html/about.jsp"
+							href="http://locahost:8080/hotel/home/html/about.jsp"
 							target="_blank">关于我们</a> <a
-							href="http://192.168.10.123:8080/hotel/home/html/contact.jsp"
+							href="http://locahost:8080/hotel/home/html/contact.jsp"
 							target="_blank">联系我们</a>
 
 					</div>
@@ -1759,7 +1759,7 @@ video {
 		$(".exit")
 				.click(
 						function() {
-							window.location = "http://192.168.10.123:8080/hotel/home/log.do?c=returnHome";
+							window.location = "http://locahost:8080/hotel/home/log.do?c=returnHome";
 						});
 		//客房图片
 		$("table").on("click", ".getimg", function() {

@@ -30,7 +30,7 @@ public class LogFilter implements Filter {
 		if (object != null) {
 			chain.doFilter(req, resp);
 		}else {
-			respone.sendRedirect("http://192.168.10.123:8080/hotel/home/register.jsp");
+			respone.sendRedirect("http://locahost:8080/hotel/home/register.jsp");
 		}
 
 	}

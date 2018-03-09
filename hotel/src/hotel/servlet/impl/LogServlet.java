@@ -47,7 +47,7 @@ public class LogServlet extends BaseServlet {
 	public void returnHome(HttpServletRequest req,HttpServletResponse resp) {
 		req.getSession().removeAttribute("log");
 		try {
-			resp.sendRedirect("http://192.168.10.123:8080/hotel/home/register.jsp");
+			resp.sendRedirect("http://locahost:8080/hotel/home/register.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
